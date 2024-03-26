@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/logo.png";
+---
+
+<script>
+  const menuButton = document.querySelector(".menu-button");
+  const menu = document.querySelector(".menu");
+
+  menuButton.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("column-mode");
+  });
+</script>
+
+<nav class='flex justify-between items-center p-4 md:justify-around border-b-4'>
+  <Image
+    src={logo}
+    width={200}
+    class='logo animate-fade-in'
+    alt='Descripción de mi imagen'
+  />
+  <div class='menu hidden sm:flex sm:gap-4 animate-fade-in'>
+    <a href='/' class='a-text font-semibold sm:text-lg'>Inicio</a>
+    <a href='/productos' class='a-text font-semibold sm:text-lg'>Productos</a>
+    <a href='/quienes-somos' class='a-text font-semibold sm:text-lg'
+      >Quienes somos</a
+    >
+    <a
+      href='https://api.whatsapp.com/send/?phone=542494208353'
+      target='_blank'
+      class='a-text font-semibold flex items-center gap-1 sm:text-lg'
+      ><svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='16'
+        height='16'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='green'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='icon icon-tabler icons-tabler-outline icon-tabler-brand-whatsapp'
+        ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path
+          d='M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9'></path><path
+          d='M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1'
+        ></path></svg
+      >Contacto</a
+    >
+  </div>
+  <button
+    class='menu-button block sm:hidden p-2 text-gray-700 border border-gray-300 rounded-md'
+  >
+    <svg
+      class='w-6 h-6'
+      fill='none'
+      stroke='currentColor'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        stroke-width='2'
+        d='M4 6h16M4 12h16M4 18h16'></path>
+    </svg>
+  </button>
+</nav>
+
+<style>
+  nav {
+    min-width: 320px;
+  }
+
+  .a-text {
+    color: #373536;
+    user-select: none;
+  }
+
+  .a-text:hover {
+    text-decoration: underline;
+  }
+
+  @media screen and (max-width: 639px) {
+    .logo {
+      width: 170px;
+    }
+    .column-mode {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      position: absolute;
+      top: 92px;
+      left: 0;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px 0;
+    }
+  }
+</style>
