@@ -15,18 +15,23 @@ const { title } = Astro.props;
     <meta name='description' content='Astro description' />
     <meta name='viewport' content='width=device-width' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap'
+      rel='stylesheet'
+    />
     <title>{title}</title>
   </head>
   <body>
+    <Header />
     <main>
-      <Header />
+      <slot />
     </main>
   </body>
 </html>
 
 <style is:global>
   html {
-    font-family: system-ui, sans-serif;
+    font-family: "Lato", sans-serif;
     background: whitesmoke;
   }
 </style>

@@ -1,0 +1,77 @@
+---
+import ImgCar1 from "../assets/images/carousel-image-1.jpg";
+import ImgCar2 from "../assets/images/carousel-image-2.jpg";
+import ImgCar3 from "../assets/images/carousel-image-3.jpg";
+const images = [ImgCar1.src, ImgCar2.src, ImgCar3.src];
+---
+
+<script>
+  const imagesData = JSON.parse(
+    document.getElementById("image-data").getAttribute("data-images")
+  );
+  let currentIndex = 0;
+
+  function renderImages() {
+    const imgElements = document.querySelectorAll(".carousel-img");
+
+    imgElements.forEach((img, index) => {
+      if (currentIndex === index) {
+        img.classList.add("block");
+        img.classList.add("animate-zoomIn");
+        img.classList.remove("hidden");
+      } else {
+        img.classList.remove("block", "animate-zoomIn", "animate-zoomOut");
+        img.classList.add("hidden");
+      }
+    });
+  }
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % imagesData.length;
+    renderImages();
+  }, 6000);
+
+  renderImages();
+</script>
+
+<div
+  class='relative max-w-[97%] h-[300px] sm:h-[400px] md:h-[450px] 2xl:h-[550px] m-auto overflow-hidden z-0'
+>
+  {
+    images.map((image) => (
+      <img
+        src={image}
+        class='carousel-img w-[100%] h-[100%] m-auto hidden absolute top-0 bottom-0 left-0 right-0'
+      />
+    ))
+  }
+  <div class='w-[100%] h-[100%] absolute top-0 left-0 bg-black bg-opacity-50'>
+  </div>
+  <h1
+    class='absolute bottom-2 text-2xl left-1/2 -translate-x-1/2 sm:left-2 sm:translate-x-0 font-[900] text-[#862e44] bg-white bg-opacity-50 p-2 uppercase select-none'
+  >
+    Polifroni Puertas
+  </h1>
+</div>
+
+<div id='image-data' data-images={JSON.stringify(images)}></div>
+
+<style>
+  img.carousel-img {
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .animate-zoomIn {
+    animation: zoomIn 6s ease-in-out;
+  }
+
+  @keyframes zoomIn {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.05);
+    }
+  }
+</style>
