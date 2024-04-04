@@ -85,10 +85,9 @@ import WoodTexture from "../assets/images/wood-texture.avif";
   <section
     class='w-[100%] flex flex-col justify-around items-center gap-7 md:px-7 md:flex-row flex-wrap'
   >
-    <!-- PVC -->
     <div class='relative'>
       <div
-        class='material-window animate-fade-in open'
+        class='material-window animate-fade-in'
         style={{ borderImage: `url(${PvcTexture.src}) 30 repeat` }}
       >
         <div class='help-text'>Presiona para abrir</div>
@@ -148,8 +147,10 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           <div
             class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
           >
-            <h5 class='font-bold text-zinc-900'>Durabilidad</h5>
-            <p class='text-sm text-gray-600 text-center'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Durabilidad
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
               El PVC es muy resistente a la corrosión, lo que significa que dura
               mucho tiempo sin deteriorarse.
             </p>
@@ -157,28 +158,34 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           <div
             class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
           >
-            <p class='text-sm text-gray-600 text-center'>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
               ¿Sabías que el PVC se puede moldear fácilmente en diferentes
               formas y tamaños? Eso lo hace muy versátil para diferentes
               aplicaciones.
             </p>
-            <h5 class='font-bold text-zinc-900'>Versatilidad</h5>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Versatilidad
+            </h5>
           </div>
           <div
             class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
           >
-            <h5 class='font-bold text-zinc-900'>Aislante</h5>
-            <p class='text-sm text-gray-600 text-center'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Aislante
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
               El PVC tiene buenas propiedades tanto térmicas como eléctricas, lo
               que lo convierte en un excelente material para aislamientos.
             </p>
           </div>
           <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
-            <p class='text-sm text-gray-600 text-center'>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
               Es autoextinguible, lo que significa que no contribuye a la
               propagación del fuego.
             </p>
-            <h5 class='font-bold text-zinc-900'>Resistencia al fuego</h5>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Resistencia al fuego
+            </h5>
           </div>
         </div>
 
@@ -189,8 +196,10 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           <div
             class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
           >
-            <h5 class='font-bold text-zinc-900'>Emisiones tóxicas</h5>
-            <p class='text-sm text-gray-600 text-center'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Emisiones tóxicas
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
               Si el PVC se quema o se descompone, puede liberar gases
               peligrosos, lo que es un riesgo para la salud.
             </p>
@@ -198,15 +207,19 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           <div
             class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
           >
-            <p class='text-sm text-gray-600 text-center'>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
               El PVC se deforma con facilidad cuando se expone a altas
               temperaturas.
             </p>
-            <h5 class='font-bold text-zinc-900'>Temperatura</h5>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Temperatura
+            </h5>
           </div>
           <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
-            <h5 class='font-bold text-zinc-900'>Resistencia</h5>
-            <p class='text-sm text-gray-600 text-center'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Resistencia
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
               Comparado con otros plásticos técnicos o metales, el PVC tiene una
               menor resistencia a la tensión y al impacto.
             </p>
@@ -215,7 +228,6 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       </div>
     </div>
 
-    <!-- Aluminio -->
     <div class='relative'>
       <div
         class='material-window animate-fade-in'
@@ -273,11 +285,86 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           class='w-[85%] md:w-[100%] object-cover show'
           id='imageContentAluminum'
         />
-        <div class='hidden' id='advantageContentAluminum'>
-          <h1>Ventajas</h1>
+        <div
+          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='advantageContentAluminum'
+        >
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Durabilidad
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              El aluminio es resistente a la corrosión y tiene una larga vida
+              útil.
+            </p>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              Es un material ligero pero robusto, lo que facilita su instalación
+              y uso.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Ligereza
+            </h5>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Estética
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              Ofrece una apariencia moderna y elegante, adaptable a diferentes
+              estilos arquitectónicos.
+            </p>
+          </div>
+          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              El aluminio es completamente reciclable, lo que lo convierte en
+              una opción más sostenible.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Reciclable
+            </h5>
+          </div>
         </div>
-        <div class='hidden' id='disadvantageContentAluminum'>
-          <h1>Desventajas</h1>
+        <div
+          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='disadvantageContentAluminum'
+        >
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Conductividad térmica
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              El aluminio es un buen conductor del calor, lo que puede afectar
+              el aislamiento térmico.
+            </p>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              Puede oxidarse con el tiempo, especialmente en áreas con alta
+              humedad o salinidad.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Oxidación
+            </h5>
+          </div>
+          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>Ruido</h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              No ofrece el mismo nivel de aislamiento acústico que otros
+              materiales.
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -340,11 +427,99 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           class='w-[85%] md:w-[100%] object-cover show'
           id='imageContentWood'
         />
-        <div class='hidden' id='advantageContentWood'>
-          <h1>Ventajas</h1>
+        <div
+          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='advantageContentWood'
+        >
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Estética natural
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              Ofrecen una apariencia cálida y tradicional, añadiendo encanto a
+              cualquier espacio.
+            </p>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              La madera es un buen aislante natural, proporcionando confort en
+              términos de temperatura y reducción de ruido.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Aislamiento térmico y acústico
+            </h5>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Durabilidad
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              Con el cuidado adecuado, las aberturas de madera pueden tener una
+              larga vida útil.
+            </p>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              Se pueden personalizar fácilmente en cuanto a diseño, forma y
+              tamaño.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Personalización
+            </h5>
+          </div>
+          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Sostenibilidad
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              La madera es un material renovable y biodegradable, lo que la
+              convierte en una opción más ecológica.
+            </p>
+          </div>
         </div>
-        <div class='hidden' id='disadvantageContentWood'>
-          <h1>Desventajas</h1>
+        <div
+          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='disadvantageContentWood'
+        >
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
+          >
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Mantenimiento
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              Requieren un mantenimiento regular, como pintura o barnizado, para
+              protegerlas de los elementos y evitar la deterioración.
+            </p>
+          </div>
+          <div
+            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
+          >
+            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
+              La madera puede ser susceptible a plagas y enfermedades si no se
+              trata adecuadamente.
+            </p>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
+              Vulnerabilidad a insectos y hongos
+            </h5>
+          </div>
+          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
+            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
+              Combustibilidad
+            </h5>
+            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
+              La madera es inflamable, lo que puede representar un riesgo en
+              caso de incendio.
+            </p>
+          </div>
         </div>
       </div>
     </div>
