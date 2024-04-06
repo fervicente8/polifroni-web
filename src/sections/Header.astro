@@ -36,12 +36,33 @@ import logo from "../assets/logo.png";
       >Productos</a
     >
     <a href='/quienes-somos' class='a-text who-we-are font-semibold sm:text-lg'
-      >Quienes somos</a
+      >Quiénes somos</a
+    >
+    <a
+      href='https://maps.app.goo.gl/N2FWi27DiYGDD8sh9'
+      target='_blank'
+      class='a-text font-semibold flex items-center gap-1 sm:text-lg'
+      ><svg
+        xmlns='http://www.w3.org/2000/svg'
+        width='16'
+        height='16'
+        viewBox='0 0 24 24'
+        fill='none'
+        stroke='currentColor'
+        stroke-width='2'
+        stroke-linecap='round'
+        stroke-linejoin='round'
+        class='icon icon-tabler icons-tabler-outline icon-tabler-map-pin'
+        ><path stroke='none' d='M0 0h24v24H0z' fill='none'></path><path
+          d='M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0'></path><path
+          d='M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z'
+        ></path></svg
+      >Ubicación</a
     >
     <a
       href='https://api.whatsapp.com/send/?phone=542494208353'
       target='_blank'
-      class='a-text contact font-semibold flex items-center gap-1 sm:text-lg'
+      class='a-text font-semibold flex items-center gap-1 sm:text-lg'
     >
       <svg
         xmlns='http://www.w3.org/2000/svg'
@@ -63,7 +84,7 @@ import logo from "../assets/logo.png";
       </svg> Contacto
     </a>
   </div>
-  <button class='menu-button block sm:hidden p-2 text-gray-700 rounded-md'>
+  <button class='menu-button block p-2 text-gray-700 rounded-md'>
     <svg
       class='w-6 h-6'
       fill='none'
@@ -97,7 +118,13 @@ import logo from "../assets/logo.png";
     cursor: default;
   }
 
-  @media screen and (max-width: 639px) {
+  @media screen and (min-width: 720px) {
+    .menu-button {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
     .menu {
       position: absolute;
       left: 0;
@@ -106,7 +133,7 @@ import logo from "../assets/logo.png";
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
-      height: 0;
+      height: 0px;
       background-color: #fff;
       border: 1px solid #ccc;
       overflow: hidden;
@@ -117,19 +144,19 @@ import logo from "../assets/logo.png";
     .menu .a-text {
       font-size: 1rem;
       width: 100%;
-      padding: 10px 35px;
+      padding: 3px 35px;
     }
 
     .menu .a-text:nth-child(1) {
-      padding: 20px 35px 10px;
+      padding: 20px 35px 3px;
     }
 
     .menu .a-text:nth-last-child(1) {
-      padding: 10px 35px 20px;
+      padding: 3px 35px 20px;
     }
 
     .menu.expanded {
-      height: 198px;
+      height: 286px;
     }
   }
 </style>
