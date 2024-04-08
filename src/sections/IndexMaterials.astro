@@ -14,19 +14,17 @@ import WoodTexture from "../assets/images/wood-texture.avif";
     const contentSections = {
       imageSectionPVC: document.getElementById("imageContentPVC"),
       advantageSectionPVC: document.getElementById("advantageContentPVC"),
-      disadvantageSectionPVC: document.getElementById("disadvantageContentPVC"),
+      descriptionSectionPVC: document.getElementById("descriptionContentPVC"),
       imageSectionAluminum: document.getElementById("imageContentAluminum"),
       advantageSectionAluminum: document.getElementById(
         "advantageContentAluminum"
       ),
-      disadvantageSectionAluminum: document.getElementById(
-        "disadvantageContentAluminum"
+      descriptionSectionAluminum: document.getElementById(
+        "descriptionContentAluminum"
       ),
       imageSectionWood: document.getElementById("imageContentWood"),
       advantageSectionWood: document.getElementById("advantageContentWood"),
-      disadvantageSectionWood: document.getElementById(
-        "disadvantageContentWood"
-      ),
+      descriptionSectionWood: document.getElementById("descriptionContentWood"),
     };
 
     materialWindows.forEach((window) => {
@@ -130,11 +128,11 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       >
         <div class='behind-window-sections mb-3'>
           <p class='show-image selected' id='imageSectionPVC'>Interior</p>
+          <p class='show-description non-selected' id='descriptionSectionPVC'>
+            Descripción
+          </p>
           <p class='show-advantage non-selected' id='advantageSectionPVC'>
             Ventajas
-          </p>
-          <p class='show-disadvantage non-selected' id='disadvantageSectionPVC'>
-            Desventajas
           </p>
         </div>
         <img
@@ -142,6 +140,18 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           class='w-[85%] md:w-[100%] object-cover show'
           id='imageContentPVC'
         />
+        <div
+          class='h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='descriptionContentPVC'
+        >
+          <p class='text-sm lg:text-lg text-gray-600 text-center'>
+            El PVC es un material plástico muy utilizado en la fabricación de
+            aberturas debido a su durabilidad y resistencia a la corrosión. Las
+            aberturas de PVC son conocidas por su excelente aislamiento térmico
+            y acústico, lo que las hace ideales para mantener el interior de los
+            espacios confortables y protegidos del ruido exterior.
+          </p>
+        </div>
         <div
           class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
           id='advantageContentPVC'
@@ -190,43 +200,6 @@ import WoodTexture from "../assets/images/wood-texture.avif";
             </h5>
           </div>
         </div>
-
-        <div
-          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
-          id='disadvantageContentPVC'
-        >
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
-          >
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
-              Emisiones tóxicas
-            </h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              Si el PVC se quema o se descompone, puede liberar gases
-              peligrosos, lo que es un riesgo para la salud.
-            </p>
-          </div>
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
-          >
-            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
-              El PVC se deforma con facilidad cuando se expone a altas
-              temperaturas.
-            </p>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
-              Temperatura
-            </h5>
-          </div>
-          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
-              Resistencia
-            </h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              Comparado con otros plásticos técnicos o metales, el PVC tiene una
-              menor resistencia a la tensión y al impacto.
-            </p>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -272,14 +245,14 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       >
         <div class='behind-window-sections mb-3'>
           <p class='show-image selected' id='imageSectionAluminum'>Interior</p>
+          <p
+            class='show-description non-selected'
+            id='descriptionSectionAluminum'
+          >
+            Descripción
+          </p>
           <p class='show-advantage non-selected' id='advantageSectionAluminum'>
             Ventajas
-          </p>
-          <p
-            class='show-disadvantage non-selected'
-            id='disadvantageSectionAluminum'
-          >
-            Desventajas
           </p>
         </div>
         <img
@@ -287,6 +260,18 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           class='w-[85%] md:w-[100%] object-cover show'
           id='imageContentAluminum'
         />
+        <div
+          class='h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='descriptionContentAluminum'
+        >
+          <p class='text-sm lg:text-lg text-gray-600 text-center'>
+            El aluminio es un material metálico ligero y resistente que se
+            utiliza ampliamente en la fabricación de aberturas, especialmente en
+            ventanas y puertas corredizas. Las aberturas de aluminio son
+            duraderas, resistentes a la corrosión y ofrecen una estética moderna
+            y elegante.
+          </p>
+        </div>
         <div
           class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
           id='advantageContentAluminum'
@@ -332,40 +317,6 @@ import WoodTexture from "../assets/images/wood-texture.avif";
             <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
               Reciclable
             </h5>
-          </div>
-        </div>
-        <div
-          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
-          id='disadvantageContentAluminum'
-        >
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
-          >
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
-              Conductividad térmica
-            </h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              El aluminio es un buen conductor del calor, lo que puede afectar
-              el aislamiento térmico.
-            </p>
-          </div>
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
-          >
-            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
-              Puede oxidarse con el tiempo, especialmente en áreas con alta
-              humedad o salinidad.
-            </p>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
-              Oxidación
-            </h5>
-          </div>
-          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>Ruido</h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              No ofrece el mismo nivel de aislamiento acústico que otros
-              materiales.
-            </p>
           </div>
         </div>
       </div>
@@ -414,14 +365,11 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       >
         <div class='behind-window-sections mb-3'>
           <p class='show-image selected' id='imageSectionWood'>Interior</p>
+          <p class='show-description non-selected' id='descriptionSectionWood'>
+            Descripción
+          </p>
           <p class='show-advantage non-selected' id='advantageSectionWood'>
             Ventajas
-          </p>
-          <p
-            class='show-disadvantage non-selected'
-            id='disadvantageSectionWood'
-          >
-            Desventajas
           </p>
         </div>
         <img
@@ -429,6 +377,17 @@ import WoodTexture from "../assets/images/wood-texture.avif";
           class='w-[85%] md:w-[100%] object-cover show'
           id='imageContentWood'
         />
+        <div
+          class='h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
+          id='descriptionContentWood'
+        >
+          <p class='text-sm lg:text-lg text-gray-600 text-center'>
+            Las aberturas de madera ofrecen un aspecto estético tradicional y
+            cálido que las hace populares en muchos estilos arquitectónicos. La
+            madera es un material natural que requiere un mantenimiento regular
+            para protegerla de la humedad, los insectos y el deterioro.
+          </p>
+        </div>
         <div
           class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
           id='advantageContentWood'
@@ -484,42 +443,6 @@ import WoodTexture from "../assets/images/wood-texture.avif";
             <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
               La madera es un material renovable y biodegradable, lo que la
               convierte en una opción más ecológica.
-            </p>
-          </div>
-        </div>
-        <div
-          class='flex-col justify-center h-[100%] overflow-y-scroll pb-2 sm:p-4 hidden'
-          id='disadvantageContentWood'
-        >
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 pb-4 border-b border-[#862e44]'
-          >
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
-              Mantenimiento
-            </h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              Requieren un mantenimiento regular, como pintura o barnizado, para
-              protegerlas de los elementos y evitar la deterioración.
-            </p>
-          </div>
-          <div
-            class='flex justify-between items-center gap-3 sm:gap-4 py-4 border-b border-[#862e44]'
-          >
-            <p class='text-sm text-gray-600 text-center animate-slide-in-left'>
-              La madera puede ser susceptible a plagas y enfermedades si no se
-              trata adecuadamente.
-            </p>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-right'>
-              Vulnerabilidad a insectos y hongos
-            </h5>
-          </div>
-          <div class='flex justify-between items-center gap-3 sm:gap-4 pt-4'>
-            <h5 class='font-bold text-zinc-900 animate-slide-in-left'>
-              Combustibilidad
-            </h5>
-            <p class='text-sm text-gray-600 text-center animate-slide-in-right'>
-              La madera es inflamable, lo que puede representar un riesgo en
-              caso de incendio.
             </p>
           </div>
         </div>

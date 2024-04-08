@@ -25,6 +25,7 @@ import logo from "../assets/logo.png";
 
   menuButton.addEventListener("click", () => {
     menu.classList.toggle("expanded");
+    menuButton.classList.toggle("expanded");
   });
 </script>
 
@@ -84,9 +85,9 @@ import logo from "../assets/logo.png";
       </svg> Contacto
     </a>
   </div>
-  <button class='menu-button block p-2 text-gray-700 rounded-md'>
+  <button class='menu-button hidden p-2 text-gray-700 rounded-md'>
     <svg
-      class='w-6 h-6'
+      class='menu-icon w-6 h-6'
       fill='none'
       stroke='currentColor'
       viewBox='0 0 24 24'
@@ -118,12 +119,6 @@ import logo from "../assets/logo.png";
     cursor: default;
   }
 
-  @media screen and (min-width: 720px) {
-    .menu-button {
-      display: none;
-    }
-  }
-
   @media screen and (max-width: 720px) {
     .menu {
       position: absolute;
@@ -139,6 +134,24 @@ import logo from "../assets/logo.png";
       overflow: hidden;
       transition: height 0.3s ease-in-out;
       z-index: 100;
+    }
+
+    .menu-button {
+      display: block;
+    }
+
+    .menu-button .menu-icon {
+      transition: transform 0.3s ease;
+      color: #373536;
+    }
+
+    .menu-button.expanded .menu-icon {
+      transform: rotate(45deg);
+      translate: 5px 0;
+    }
+
+    .menu-button.expanded .menu-icon path:nth-child(1) {
+      transform: translateY(1px) translateX(5px) rotate(45deg);
     }
 
     .menu .a-text {
@@ -157,6 +170,12 @@ import logo from "../assets/logo.png";
 
     .menu.expanded {
       height: 286px;
+    }
+
+    @media screen and (max-width: 639px) {
+      .menu.expanded {
+        height: 186px;
+      }
     }
   }
 </style>
