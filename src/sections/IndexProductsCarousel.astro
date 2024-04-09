@@ -48,8 +48,8 @@ let imagesdesktop = [
       buttonContainer.style.position = "absolute";
       buttonContainer.style.bottom = "1rem";
       buttonContainer.style.left = "1rem";
-      buttonContainer.style.zIndex = "5";
-      buttonContainer.classList.add("animate-slide-in-bottom");
+      buttonContainer.style.zIndex = "3";
+      buttonContainer.classList.add("animate-fade-in-up");
       const button = document.createElement("a");
       button.innerText = buttonTitle;
       button.href = redirect;
@@ -61,7 +61,7 @@ let imagesdesktop = [
       button.style.padding = "0.5rem 1rem";
       button.style.borderRadius = "3px";
       button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = "rgba(255, 255, 255, 1)";
+        button.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
       });
       button.addEventListener("mouseout", () => {
         button.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
