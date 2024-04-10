@@ -44,6 +44,7 @@ let imagesdesktop = [
       subtitle: string,
       text: string
     ) {
+      let mediaQuery = window.matchMedia("(min-width: 1024px)");
       const buttonContainer = document.createElement("div");
       buttonContainer.style.position = "absolute";
       buttonContainer.style.bottom = "1rem";
@@ -53,18 +54,21 @@ let imagesdesktop = [
       const button = document.createElement("a");
       button.innerText = buttonTitle;
       button.href = redirect;
-      button.style.color = "#862e44";
-      button.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+      button.style.color = "rgba(255, 255, 255, 0.85)";
       button.style.border = "1px solid #862e44";
-      button.style.fontSize = "1.3rem";
+      button.style.fontSize = "1.1rem";
       button.style.fontWeight = "bold";
       button.style.padding = "0.5rem 1rem";
       button.style.borderRadius = "3px";
+      button.style.transition = "all 0.3s ease-in-out";
+      button.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
       button.addEventListener("mouseover", () => {
-        button.style.backgroundColor = "rgba(255, 255, 255, 0.85)";
+        button.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+        button.style.color = "#862e44";
       });
       button.addEventListener("mouseout", () => {
-        button.style.backgroundColor = "rgba(255, 255, 255, 0.7)";
+        button.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+        button.style.color = "rgba(255, 255, 255, 0.85)";
       });
       const buttonSubtitle = document.createElement("h3");
       buttonSubtitle.innerText = subtitle;
@@ -80,6 +84,11 @@ let imagesdesktop = [
       buttonContainer.appendChild(button);
       buttonContainer.appendChild(buttonSubtitle);
       buttonContainer.appendChild(buttonText);
+      if (mediaQuery.matches) {
+        button.style.fontSize = "1.3rem";
+        buttonSubtitle.style.fontSize = "1.2rem";
+        buttonText.style.fontSize = "1rem";
+      }
       return buttonContainer;
     }
 
@@ -160,7 +169,7 @@ let imagesdesktop = [
       currentIndex = (currentIndex + 1) % renderedImages.length;
       showImages();
     }
-  }, 7000);
+  }, 10000);
 
   showImages();
 
@@ -244,8 +253,8 @@ let imagesdesktop = [
 
   #mainImg {
     border-radius: 1px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
-    filter: brightness(0.8);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.7);
+    filter: brightness(0.65);
     z-index: 2;
   }
 
@@ -304,6 +313,10 @@ let imagesdesktop = [
   @media screen and (min-width: 1024px) {
     .image-container {
       width: 980px;
+    }
+
+    .carousel-button-container h3 {
+      font-size: 1.5rem;
     }
   }
 
