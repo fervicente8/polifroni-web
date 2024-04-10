@@ -53,6 +53,10 @@ const images = [ImgCar1.src, ImgCar2.src, ImgCar3.src];
 <div id='image-data' data-images={JSON.stringify(images)}></div>
 
 <style>
+  section {
+    transition: height 0.3s ease-in-out;
+  }
+
   img.carousel-img {
     object-fit: cover;
     object-position: center;

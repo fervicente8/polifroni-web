@@ -176,7 +176,7 @@ let imagesdesktop = [
   function handleResize() {
     screenWidth = window.innerWidth;
 
-    if (screenWidth <= 768) {
+    if (screenWidth < 768) {
       renderedImages = phoneImagesData;
     } else {
       renderedImages = desktopImagesData;
