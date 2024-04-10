@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import logo from "../assets/logo.png";
 ---
 
@@ -30,7 +29,13 @@ import logo from "../assets/logo.png";
 </script>
 
 <nav id='nav' class='flex justify-between items-center py-3 px-8 border-b-2'>
-  <Image src={logo} width={170} class='logo' alt='Descripción de mi imagen' />
+  <img
+    src={logo.src}
+    loading='lazy'
+    width={170}
+    class='logo'
+    alt='Descripción de mi imagen'
+  />
   <div class='menu sm:flex sm:gap-5'>
     <a href='/' class='a-text home font-semibold sm:text-lg'>Inicio</a>
     <a href='/productos' class='a-text products font-semibold sm:text-lg'
