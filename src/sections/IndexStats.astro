@@ -1,1 +1,176 @@
-<section></section>
+---
+import StatExcelencia from "../assets/images/stat-excelencia.png";
+import StatSells from "../assets/images/stat-sells.png";
+---
+
+<script>
+  function updateNumber() {
+    const sellsAmount = document.querySelector(".sells-amount");
+    const sellsAmountText = document.querySelector(".sells-amount-text");
+    const yearsExperience = document.querySelector(".years-experience");
+    const yearsExperienceText = document.querySelector(
+      ".years-experience-text"
+    );
+    const targetNumber = 100;
+    var startDate = new Date("1972-04-04");
+    var today = new Date();
+    var difference = today.getTime() - startDate.getTime();
+
+    var msPerYear = 1000 * 60 * 60 * 24 * 365.25;
+    var years = Math.floor(difference / msPerYear);
+    let currentNumberA = 0;
+    let currentNumberB = 0;
+
+    const amountObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const interval = setInterval(() => {
+            currentNumberA++;
+            sellsAmount.textContent = `+${currentNumberA.toString()}`;
+            sellsAmount.classList.add("animate-fade-in-left");
+            sellsAmountText.classList.add("animate-fade-in-right");
+
+            if (currentNumberA === targetNumber) {
+              clearInterval(interval);
+            }
+          }, 20);
+
+          observer.unobserve(sellsAmount);
+        }
+      });
+    });
+
+    const experienceObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const interval = setInterval(() => {
+            currentNumberB++;
+            yearsExperience.textContent = currentNumberB.toString();
+            yearsExperience.classList.add("animate-fade-in-left");
+            yearsExperienceText.classList.add("animate-fade-in-right");
+
+            if (currentNumberA === years) {
+              clearInterval(interval);
+            }
+          }, 20);
+
+          observer.unobserve(yearsExperience);
+        }
+      });
+    });
+
+    amountObserver.observe(sellsAmount);
+    experienceObserver.observe(yearsExperience);
+  }
+
+  function animateTextAndImage() {
+    const excelenceText = document.querySelector(".excelence-text");
+    const images = document.querySelectorAll(".stat-image");
+
+    const textObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          excelenceText.classList.add("animate-fade-in-down");
+          observer.unobserve(excelenceText);
+        }
+      });
+    });
+
+    textObserver.observe(excelenceText);
+
+    const imageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const imgElement = entry.target as HTMLImageElement;
+          imgElement.classList.add("animate-fade-in-down");
+        }
+      });
+    });
+
+    images.forEach((image) => {
+      image.classList.add("animated");
+      imageObserver.observe(image);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    updateNumber();
+    animateTextAndImage();
+  });
+</script>
+
+<section class='flex flex-col gap-20 mb-14 sm:gap-0 sm:mb-0'>
+  <div
+    class='flex flex-col gap-3 justify-center items-center sm:gap-0 sm:flex-row'
+  >
+    <div class='p-4 w-[80%] sm:w-[50%] lg:p-20'>
+      <p
+        class='excelence-text text-[1rem] lg:text-[1.3rem] text-gray-600 text-center'
+      >
+        "Aberturas de excelencia, donde la calidad y el detalle se encuentran en
+        cada diseño, haciendo de tu hogar un espacio único y distinguido."
+      </p>
+    </div>
+    <img
+      src={StatExcelencia.src}
+      alt='Excelencia'
+      loading='lazy'
+      class='stat-image w-[100%] object-cover sm:w-[50%] aspect-video'
+    />
+  </div>
+  <div class='flex flex-col justify-between items-center sm:gap-0 sm:flex-row'>
+    <img
+      src={StatSells.src}
+      alt='Excelencia'
+      loading='lazy'
+      class='stat-image w-[100%] object-cover sm:w-[50%] aspect-video'
+    />
+    <div
+      class='stats-container w-[80%] sm:w-[50%] xl:w-[35%] xl:m-auto pt-4 sm:p-4 lg:px-20'
+    >
+      <div>
+        <p
+          class='sells-amount text-[3rem] text-[#862e44] font-bold text-end lg:text-[4rem] mb-[-1rem]'
+        >
+        </p>
+        <p
+          class='sells-amount-text text-[1rem] text-gray-600 text-end lg:text-[1.3rem]'
+        >
+          trabajos completados en 2023
+        </p>
+      </div>
+      <div>
+        <p
+          class='years-experience text-[3rem] text-[#862e44] font-bold text-left lg:text-[4rem] mb-[-1rem]'
+        >
+        </p>
+        <p
+          class='years-experience-text text-[1rem] text-gray-600 text-left lg:text-[1.3rem]'
+        >
+          años de experiencia.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stats-container {
+    transition: all 0.5s ease-in-out;
+  }
+  .animate-fade-in-left {
+    animation: fade-in-left 2s ease-in-out both;
+  }
+
+  .animate-fade-in-right {
+    animation: fade-in-right 2s ease-in-out both;
+  }
+
+  .animate-fade-in-down {
+    animation: fade-in-down 1s ease-in-out both;
+  }
+
+  .animated {
+    transition: transform 0.5s ease-in-out;
+  }
+</style>
