@@ -2,9 +2,9 @@
 import PvcImage from "../assets/images/typePvc.png";
 import AluminumImage from "../assets/images/typeAluminum.png";
 import WoodImage from "../assets/images/typeWood.png";
-import PvcTexture from "../assets/images/pvc-texture.avif";
-import AluminumTexture from "../assets/images/aluminum-texture.avif";
-import WoodTexture from "../assets/images/wood-texture.avif";
+import PvcTexture from "../assets/textures/pvc-texture.avif";
+import AluminumTexture from "../assets/textures/aluminum-texture.avif";
+import WoodTexture from "../assets/textures/wood-texture.avif";
 ---
 
 <script>
@@ -26,6 +26,42 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       advantageSectionWood: document.getElementById("advantageContentWood"),
       descriptionSectionWood: document.getElementById("descriptionContentWood"),
     };
+
+    const materialWindowsInfo = document.querySelectorAll(
+      ".material-window-info"
+    );
+    const materialWindowObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            materialWindows.forEach((window) => {
+              window.classList.add("animate-fade-in");
+
+              observer.unobserve(window);
+            });
+          }
+        });
+      }
+    );
+    const materialInfoObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            materialWindowsInfo.forEach((window) => {
+              window.classList.add("animate-blurred-fade-in");
+              observer.unobserve(window);
+            });
+          }
+        });
+      }
+    );
+
+    materialWindows.forEach((window) => {
+      materialWindowObserver.observe(window);
+    });
+    materialWindowsInfo.forEach((window) => {
+      materialInfoObserver.observe(window);
+    });
 
     materialWindows.forEach((window) => {
       window.addEventListener("click", () => {
@@ -87,7 +123,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
   >
     <div class='relative'>
       <div
-        class='material-window animate-fade-in'
+        class='material-window'
         style={{ borderImage: `url(${PvcTexture.src}) 30 repeat` }}
       >
         <div class='help-text'>Presiona para abrir</div>
@@ -123,7 +159,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
       </div>
 
       <div
-        class='border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center animate-blurred-fade-in'
+        class='material-window-info border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center'
         style={{ borderImage: `url(${PvcTexture.src}) 30 repeat` }}
       >
         <div class='behind-window-sections mb-3'>
@@ -209,7 +245,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
 
     <div class='relative'>
       <div
-        class='material-window animate-fade-in'
+        class='material-window'
         style={{ borderImage: `url(${AluminumTexture.src}) 30 repeat` }}
       >
         <div class='help-text'>Presiona para abrir</div>
@@ -244,7 +280,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
         </div>
       </div>
       <div
-        class='border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center animate-blurred-fade-in'
+        class='material-window-info border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center'
         style={{ borderImage: `url(${AluminumTexture.src}) 30 repeat` }}
       >
         <div class='behind-window-sections mb-3'>
@@ -332,7 +368,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
 
     <div class='relative'>
       <div
-        class='material-window animate-fade-in'
+        class='material-window'
         style={{ borderImage: `url(${WoodTexture.src}) 30 repeat` }}
       >
         <div class='help-text'>Presiona para abrir</div>
@@ -367,7 +403,7 @@ import WoodTexture from "../assets/images/wood-texture.avif";
         </div>
       </div>
       <div
-        class='border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center animate-blurred-fade-in'
+        class='material-window-info border-x-[8px] border-y-[10px] behind-window-info p-4 absolute top-0 left-0 w-full h-full flex flex-col items-center'
         style={{ borderImage: `url(${WoodTexture.src}) 30 repeat` }}
       >
         <div class='behind-window-sections mb-3'>
