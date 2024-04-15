@@ -48,10 +48,14 @@ import LogoSchuco from "../assets/logos/logo-schuco.png";
 </section>
 
 <style>
+  .suppliersContainer {
+    opacity: 0;
+  }
+
   .supplier-image {
     cursor: pointer;
     border-radius: 10px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     width: 130px;
     filter: grayscale(100%);
     opacity: 0.8;
@@ -60,5 +64,16 @@ import LogoSchuco from "../assets/logos/logo-schuco.png";
   .supplier-image:hover {
     filter: grayscale(0);
     opacity: 1;
+  }
+
+  @keyframes animate-fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 0.8;
+      transform: translateY(0);
+    }
   }
 </style>

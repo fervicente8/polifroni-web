@@ -114,7 +114,6 @@ import StatSells from "../assets/images/stat-sells.png";
     <img
       src={StatExcelencia.src}
       alt='Excelencia'
-      loading='lazy'
       class='stat-image w-[100%] object-cover sm:w-[50%] aspect-video'
     />
   </div>
@@ -122,7 +121,6 @@ import StatSells from "../assets/images/stat-sells.png";
     <img
       src={StatSells.src}
       alt='Excelencia'
-      loading='lazy'
       class='stat-image w-[100%] object-cover sm:w-[50%] aspect-video'
     />
     <div
@@ -155,6 +153,22 @@ import StatSells from "../assets/images/stat-sells.png";
 </section>
 
 <style>
+  .sellsAmount {
+    opacity: 0;
+  }
+
+  .sellsAmountText {
+    opacity: 0;
+  }
+
+  .yearsExperience {
+    opacity: 0;
+  }
+
+  .yearsExperienceText {
+    opacity: 0;
+  }
+
   .stats-container {
     transition: all 0.5s ease-in-out;
   }
@@ -172,5 +186,38 @@ import StatSells from "../assets/images/stat-sells.png";
 
   .animated {
     transition: transform 0.5s ease-in-out;
+  }
+
+  @keyframes fade-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
