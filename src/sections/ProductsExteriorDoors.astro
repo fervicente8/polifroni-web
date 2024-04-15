@@ -1,0 +1,87 @@
+---
+import ExteriorImage from "../assets/images/products-exterior-door.png";
+---
+
+<script>
+  document.addEventListener("scroll", () => {
+    const imageContainer = document.querySelector(".image-container-2");
+    const image = imageContainer.querySelector("img");
+    const scrollPosition = window.scrollY;
+
+    const imageOffset = scrollPosition * 0.1;
+
+    image.style.transform = `translateY(${imageOffset}px)`;
+  });
+
+  const descContainer = document.querySelector(".desc-container-2");
+
+  const descriptionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        descContainer.classList.add("animate-fade-in-down");
+        observer.unobserve(descContainer);
+      }
+    });
+  });
+
+  descriptionObserver.observe(descContainer);
+</script>
+
+<section class='md:flex md:items-center'>
+  <div class='image-container-2'>
+    <img
+      src={ExteriorImage.src}
+      alt='Imagen puerta de exterior'
+      loading='lazy'
+    />
+  </div>
+  <div class='desc-container-2 my-8 px-5 md:text-end'>
+    <h1 class='text-2xl'>Puertas de exterior</h1>
+    <p class='mt-2 mb-6'>
+      ¡Descubre la elegancia, seguridad y tecnología en cada entrada de tu
+      hogar! te ofrecemos una selección excepcional de puertas de exterior que
+      no solo realzarán la belleza arquitectónica de tu casa, sino que también
+      garantizarán la máxima seguridad y comodidad gracias a la incorporación de
+      la última tecnología. Nuestras puertas están diseñadas con los más altos
+      estándares de calidad, combinando diseño, funcionalidad e innovación para
+      ofrecerte soluciones ideales para cualquier estilo y necesidad.
+    </p>
+    <a
+      href='/productos/puertas-exterior'
+      class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
+    >
+      Ver más
+    </a>
+  </div>
+</section>
+
+<style>
+  .image-container-2 {
+    width: 100%;
+    height: auto;
+    max-height: 700px;
+    overflow: hidden;
+  }
+
+  .image-container-2 img {
+    width: 100%;
+    max-height: 700px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .desc-container-2 {
+    opacity: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .image-container-2 {
+      width: 50%;
+    }
+
+    .desc-container-2 {
+      width: 50%;
+    }
+  }
+</style>

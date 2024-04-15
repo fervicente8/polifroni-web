@@ -1,1 +1,86 @@
-<div></div>
+---
+import InteriorImage from "../assets/images/products-interior-door.png";
+---
+
+<script>
+  document.addEventListener("scroll", () => {
+    const imageContainer = document.querySelector(".image-container");
+    const image = imageContainer.querySelector("img");
+    const scrollPosition = window.scrollY;
+
+    const imageOffset = scrollPosition * 0.1;
+
+    image.style.transform = `translateY(${imageOffset}px)`;
+  });
+
+  const descContainer = document.querySelector(".desc-container");
+
+  const descriptionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        descContainer.classList.add("animate-fade-in-down");
+        observer.unobserve(descContainer);
+      }
+    });
+  });
+
+  descriptionObserver.observe(descContainer);
+</script>
+
+<section class='md:flex md:flex-row-reverse md:items-center'>
+  <div class='image-container'>
+    <img
+      src={InteriorImage.src}
+      alt='Imagen puerta de interior'
+      loading='lazy'
+    />
+  </div>
+  <div class='desc-container my-8 px-5'>
+    <h1 class='text-2xl'>Puertas de interior</h1>
+    <p class='mt-2 mb-6'>
+      ¡Descubre la personalidad, elegancia y comodidad en cada rincón de tu
+      hogar! En nuestro extenso catálogo, encontrarás una amplia gama de puertas
+      de interior que no solo embellecerán tus espacios, sino que también
+      reflejarán tu estilo y personalidad. Nuestras puertas están diseñadas con
+      los más altos estándares de calidad, combinando estética y funcionalidad
+      para ofrecerte soluciones ideales para cualquier estilo y necesidad.
+    </p>
+    <a
+      href='/productos/puertas-interior'
+      class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
+    >
+      Ver más
+    </a>
+  </div>
+</section>
+
+<style>
+  .image-container {
+    width: 100%;
+    height: auto;
+    max-height: 700px;
+    overflow: hidden;
+  }
+
+  .image-container img {
+    width: 100%;
+    max-height: 700px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .desc-container {
+    opacity: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .image-container {
+      width: 50%;
+    }
+
+    .desc-container {
+      width: 50%;
+    }
+  }
+</style>
