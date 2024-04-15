@@ -3,12 +3,32 @@ import logo from "../assets/logos/logo.png";
 ---
 
 <script>
+  const header = document.getElementById("nav");
   const menuButton = document.querySelector(".menu-button");
   const menu = document.querySelector(".menu");
   const home = document.querySelector(".home");
   const products = document.querySelector(".products");
   const whoWeAre = document.querySelector(".who-we-are");
   const contact = document.querySelector(".contact");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      header.style.top = "-85.5px";
+      if (
+        menu.classList.contains("expanded") &&
+        menuButton.classList.contains("expanded")
+      ) {
+        menu.classList.remove("expanded");
+        menuButton.classList.remove("expanded");
+      }
+    } else {
+      header.style.top = "0";
+    }
+    lastScrollTop = scrollTop;
+  });
 
   let location = window.location.pathname;
 
@@ -30,7 +50,7 @@ import logo from "../assets/logos/logo.png";
 
 <nav
   id='nav'
-  class='flex justify-between items-center py-3 px-2 md:px-6 border-b-2'
+  class='nav flex justify-between items-center py-3 px-2 md:px-6 border-b-2'
 >
   <img
     src={logo.src}
@@ -111,6 +131,16 @@ import logo from "../assets/logos/logo.png";
 </nav>
 
 <style>
+  .nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: whitesmoke;
+    transition: top 0.3s ease-in-out;
+  }
+
   .a-text {
     font-size: 1rem;
     color: #373536;
