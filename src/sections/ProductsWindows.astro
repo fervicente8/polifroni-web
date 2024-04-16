@@ -1,10 +1,10 @@
 ---
-import InteriorImage from "../assets/images/products-interior-door.png";
+import WindowImage from "../assets/images/products-window.png";
 ---
 
 <script>
   document.addEventListener("scroll", () => {
-    const imageContainer = document.querySelector(".image-container");
+    const imageContainer = document.querySelector(".image-container-3");
     const image = imageContainer.querySelector("img");
     const scrollPosition = window.scrollY;
 
@@ -13,7 +13,7 @@ import InteriorImage from "../assets/images/products-interior-door.png";
     image.style.transform = `translateY(${imageOffset}px)`;
   });
 
-  const descContainer = document.querySelector(".desc-container");
+  const descContainer = document.querySelector(".desc-container-3");
 
   const descriptionObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
@@ -28,25 +28,22 @@ import InteriorImage from "../assets/images/products-interior-door.png";
 </script>
 
 <section class='md:flex md:flex-row-reverse md:items-center'>
-  <div class='image-container'>
-    <img
-      src={InteriorImage.src}
-      alt='Imagen puerta de interior'
-      loading='lazy'
-    />
+  <div class='image-container-3'>
+    <img src={WindowImage.src} alt='Imagen puerta de interior' loading='lazy' />
   </div>
-  <div class='desc-container my-8 px-5'>
-    <h1 class='text-2xl'>Puertas de interior</h1>
+  <div class='desc-container-3 my-8 px-5'>
+    <h1 class='text-2xl'>Ventanas</h1>
     <p class='mt-2 mb-6'>
-      ¡Descubre la personalidad, elegancia y comodidad en cada rincón de tu
-      hogar! En nuestro extenso catálogo, encontrarás una amplia gama de puertas
-      de interior que no solo embellecerán tus espacios, sino que también
-      reflejarán tu estilo y personalidad. Nuestras puertas están diseñadas con
-      los más altos estándares de calidad, combinando estética y funcionalidad
-      para ofrecerte soluciones ideales para cualquier estilo y necesidad.
+      ¡Descubre la elegancia, confort y eficiencia en cada ventana de tu hogar!
+      Te ofrecemos una amplia variedad de ventanas diseñadas para combinar a la
+      perfección funcionalidad y estética, brindándote soluciones ideales para
+      cualquier estilo y necesidad. Nuestras ventanas están fabricadas con
+      materiales de alta calidad y cuentan con diseños innovadores que se
+      adaptan a tus gustos y preferencias, creando espacios luminosos y
+      acogedores en tu hogar.
     </p>
     <a
-      href='/productos/puertas-interior'
+      href='/productos/ventanas'
       class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
     >
       Ver más
@@ -55,14 +52,14 @@ import InteriorImage from "../assets/images/products-interior-door.png";
 </section>
 
 <style>
-  .image-container {
+  .image-container-3 {
     width: 100%;
     height: auto;
     max-height: 700px;
     overflow: hidden;
   }
 
-  .image-container img {
+  .image-container-3 img {
     width: 100%;
     max-height: 700px;
     display: block;
@@ -70,16 +67,16 @@ import InteriorImage from "../assets/images/products-interior-door.png";
     transition: transform 0.5s ease;
   }
 
-  .desc-container {
+  .desc-container-3 {
     opacity: 0;
   }
 
   @media screen and (min-width: 768px) {
-    .image-container {
+    .image-container-3 {
       width: 50%;
     }
 
-    .desc-container {
+    .desc-container-3 {
       width: 50%;
     }
   }
