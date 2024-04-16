@@ -12,12 +12,7 @@ import StatSells from "../assets/images/stat-sells.png";
       ".years-experience-text"
     );
     const targetNumber = 100;
-    var startDate = new Date("1972-04-04");
-    var today = new Date();
-    var difference = today.getTime() - startDate.getTime();
-
-    var msPerYear = 1000 * 60 * 60 * 24 * 365.25;
-    var years = Math.floor(difference / msPerYear);
+    const years = 50;
     let currentNumberA = 0;
     let currentNumberB = 0;
 
@@ -45,7 +40,7 @@ import StatSells from "../assets/images/stat-sells.png";
         if (entry.isIntersecting) {
           const interval = setInterval(() => {
             currentNumberB++;
-            yearsExperience.textContent = currentNumberB.toString();
+            yearsExperience.textContent = `+${currentNumberA.toString()}`;
             yearsExperience.classList.add("animate-fade-in-left");
             yearsExperienceText.classList.add("animate-fade-in-right");
 
@@ -63,9 +58,8 @@ import StatSells from "../assets/images/stat-sells.png";
     experienceObserver.observe(yearsExperience);
   }
 
-  function animateTextAndImage() {
+  function animateText() {
     const excelenceText = document.querySelector(".excelence-text");
-    const images = document.querySelectorAll(".stat-image");
 
     const textObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -77,25 +71,11 @@ import StatSells from "../assets/images/stat-sells.png";
     });
 
     textObserver.observe(excelenceText);
-
-    const imageObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const imgElement = entry.target as HTMLImageElement;
-          imgElement.classList.add("animate-fade-in-down");
-        }
-      });
-    });
-
-    images.forEach((image) => {
-      image.classList.add("animated");
-      imageObserver.observe(image);
-    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     updateNumber();
-    animateTextAndImage();
+    animateText();
   });
 </script>
 
