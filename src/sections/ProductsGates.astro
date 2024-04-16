@@ -15,7 +15,7 @@ import GateImage from "../assets/images/products-gate.png";
 
   const descContainer = document.querySelector(".desc-container-4");
 
-  const descriptionObserver = new IntersectionObserver((entries, observer) => {
+  const description4Observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         descContainer.classList.add("animate-fade-in-down");
@@ -24,7 +24,7 @@ import GateImage from "../assets/images/products-gate.png";
     });
   });
 
-  descriptionObserver.observe(descContainer);
+  description4Observer.observe(descContainer);
 </script>
 
 <section class='md:flex md:items-center'>

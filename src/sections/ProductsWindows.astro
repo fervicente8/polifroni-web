@@ -15,7 +15,7 @@ import WindowImage from "../assets/images/products-window.png";
 
   const descContainer = document.querySelector(".desc-container-3");
 
-  const descriptionObserver = new IntersectionObserver((entries, observer) => {
+  const description3Observer = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         descContainer.classList.add("animate-fade-in-down");
@@ -24,7 +24,7 @@ import WindowImage from "../assets/images/products-window.png";
     });
   });
 
-  descriptionObserver.observe(descContainer);
+  description3Observer.observe(descContainer);
 </script>
 
 <section class='md:flex md:flex-row-reverse md:items-center'>
