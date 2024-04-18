@@ -7,111 +7,6 @@ import AluminumTexture from "../assets/textures/aluminum-texture.avif";
 import WoodTexture from "../assets/textures/wood-texture.avif";
 ---
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const materialWindows = document.querySelectorAll(".material-window");
-    const sections = document.querySelectorAll(".behind-window-sections p");
-    const contentSections = {
-      imageSectionPVC: document.getElementById("imageContentPVC"),
-      advantageSectionPVC: document.getElementById("advantageContentPVC"),
-      descriptionSectionPVC: document.getElementById("descriptionContentPVC"),
-      imageSectionAluminum: document.getElementById("imageContentAluminum"),
-      advantageSectionAluminum: document.getElementById(
-        "advantageContentAluminum"
-      ),
-      descriptionSectionAluminum: document.getElementById(
-        "descriptionContentAluminum"
-      ),
-      imageSectionWood: document.getElementById("imageContentWood"),
-      advantageSectionWood: document.getElementById("advantageContentWood"),
-      descriptionSectionWood: document.getElementById("descriptionContentWood"),
-    };
-
-    const materialWindowsInfo = document.querySelectorAll(
-      ".material-window-info"
-    );
-    const materialWindowObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            materialWindows.forEach((window) => {
-              window.classList.add("animate-fade-in");
-
-              observer.unobserve(window);
-            });
-          }
-        });
-      }
-    );
-    const materialInfoObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            materialWindowsInfo.forEach((window) => {
-              window.classList.add("animate-blurred-fade-in");
-              observer.unobserve(window);
-            });
-          }
-        });
-      }
-    );
-
-    materialWindows.forEach((window) => {
-      materialWindowObserver.observe(window);
-    });
-    materialWindowsInfo.forEach((window) => {
-      materialInfoObserver.observe(window);
-    });
-
-    materialWindows.forEach((window) => {
-      window.addEventListener("click", () => {
-        if (window.classList.contains("open")) {
-          window.classList.remove("open");
-          window.classList.add("close");
-        } else {
-          materialWindows.forEach((window) => {
-            window.classList.remove("open");
-          });
-          window.classList.add("open");
-          window.classList.remove("close");
-        }
-      });
-    });
-
-    function toggleClassesAndRenderContent(event) {
-      const targetElement = event.target;
-      const targetMaterial = targetElement.id.split("Section")[1];
-
-      const sectionParent = targetElement.closest(".behind-window-sections");
-      const siblingSections = sectionParent.querySelectorAll("p");
-      siblingSections.forEach((section) => {
-        section.classList.remove("selected");
-        section.classList.add("non-selected");
-      });
-
-      for (const key in contentSections) {
-        if (
-          Object.prototype.hasOwnProperty.call(contentSections, key) &&
-          key.includes(targetMaterial)
-        ) {
-          const element = contentSections[key];
-          element.classList.add("hidden");
-        }
-      }
-
-      targetElement.classList.remove("non-selected");
-      targetElement.classList.add("selected");
-
-      const sectionId = targetElement.id;
-      contentSections[sectionId].classList.remove("hidden");
-    }
-
-    sections.forEach((section) => {
-      section.addEventListener("click", toggleClassesAndRenderContent);
-    });
-  });
-</script>
-
 <div class='w-[100%] md:w-[97%] m-auto'>
   <h1
     class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 mb-8 lg:mb-16 2xl:text-xl'
@@ -787,3 +682,108 @@ import WoodTexture from "../assets/textures/wood-texture.avif";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const materialWindows = document.querySelectorAll(".material-window");
+    const sections = document.querySelectorAll(".behind-window-sections p");
+    const contentSections = {
+      imageSectionPVC: document.getElementById("imageContentPVC"),
+      advantageSectionPVC: document.getElementById("advantageContentPVC"),
+      descriptionSectionPVC: document.getElementById("descriptionContentPVC"),
+      imageSectionAluminum: document.getElementById("imageContentAluminum"),
+      advantageSectionAluminum: document.getElementById(
+        "advantageContentAluminum"
+      ),
+      descriptionSectionAluminum: document.getElementById(
+        "descriptionContentAluminum"
+      ),
+      imageSectionWood: document.getElementById("imageContentWood"),
+      advantageSectionWood: document.getElementById("advantageContentWood"),
+      descriptionSectionWood: document.getElementById("descriptionContentWood"),
+    };
+
+    const materialWindowsInfo = document.querySelectorAll(
+      ".material-window-info"
+    );
+    const materialWindowObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            materialWindows.forEach((window) => {
+              window.classList.add("animate-fade-in");
+
+              observer.unobserve(window);
+            });
+          }
+        });
+      }
+    );
+    const materialInfoObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            materialWindowsInfo.forEach((window) => {
+              window.classList.add("animate-blurred-fade-in");
+              observer.unobserve(window);
+            });
+          }
+        });
+      }
+    );
+
+    materialWindows.forEach((window) => {
+      materialWindowObserver.observe(window);
+    });
+    materialWindowsInfo.forEach((window) => {
+      materialInfoObserver.observe(window);
+    });
+
+    materialWindows.forEach((window) => {
+      window.addEventListener("click", () => {
+        if (window.classList.contains("open")) {
+          window.classList.remove("open");
+          window.classList.add("close");
+        } else {
+          materialWindows.forEach((window) => {
+            window.classList.remove("open");
+          });
+          window.classList.add("open");
+          window.classList.remove("close");
+        }
+      });
+    });
+
+    function toggleClassesAndRenderContent(event) {
+      const targetElement = event.target;
+      const targetMaterial = targetElement.id.split("Section")[1];
+
+      const sectionParent = targetElement.closest(".behind-window-sections");
+      const siblingSections = sectionParent.querySelectorAll("p");
+      siblingSections.forEach((section) => {
+        section.classList.remove("selected");
+        section.classList.add("non-selected");
+      });
+
+      for (const key in contentSections) {
+        if (
+          Object.prototype.hasOwnProperty.call(contentSections, key) &&
+          key.includes(targetMaterial)
+        ) {
+          const element = contentSections[key];
+          element.classList.add("hidden");
+        }
+      }
+
+      targetElement.classList.remove("non-selected");
+      targetElement.classList.add("selected");
+
+      const sectionId = targetElement.id;
+      contentSections[sectionId].classList.remove("hidden");
+    }
+
+    sections.forEach((section) => {
+      section.addEventListener("click", toggleClassesAndRenderContent);
+    });
+  });
+</script>

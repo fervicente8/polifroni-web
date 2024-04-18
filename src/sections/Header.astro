@@ -2,52 +2,6 @@
 import logo from "../assets/logos/logo.png";
 ---
 
-<script>
-  const header = document.getElementById("nav");
-  const menuButton = document.querySelector(".menu-button");
-  const menu = document.querySelector(".menu");
-  const home = document.querySelector(".home");
-  const products = document.querySelector(".products");
-  const whoWeAre = document.querySelector(".who-we-are");
-  const contact = document.querySelector(".contact");
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", function () {
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      header.style.top = "-85.5px";
-      if (
-        menu.classList.contains("expanded") &&
-        menuButton.classList.contains("expanded")
-      ) {
-        menu.classList.remove("expanded");
-        menuButton.classList.remove("expanded");
-      }
-    } else {
-      header.style.top = "0";
-    }
-    lastScrollTop = scrollTop;
-  });
-
-  let location = window.location.pathname;
-
-  if (location === "/") {
-    home.classList.add("active");
-  } else if (location === "/productos") {
-    products.classList.add("active");
-  } else if (location === "/quienes-somos") {
-    whoWeAre.classList.add("active");
-  } else if (location === "/contacto") {
-    contact.classList.add("active");
-  }
-
-  menuButton.addEventListener("click", () => {
-    menu.classList.toggle("expanded");
-    menuButton.classList.toggle("expanded");
-  });
-</script>
-
 <div class='w-[100%] h-[85.5px]'></div>
 <nav
   id='nav'
@@ -218,3 +172,49 @@ import logo from "../assets/logos/logo.png";
     }
   }
 </style>
+
+<script>
+  const header = document.getElementById("nav");
+  const menuButton = document.querySelector(".menu-button");
+  const menu = document.querySelector(".menu");
+  const home = document.querySelector(".home");
+  const products = document.querySelector(".products");
+  const whoWeAre = document.querySelector(".who-we-are");
+  const contact = document.querySelector(".contact");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      header.style.top = "-85.5px";
+      if (
+        menu.classList.contains("expanded") &&
+        menuButton.classList.contains("expanded")
+      ) {
+        menu.classList.remove("expanded");
+        menuButton.classList.remove("expanded");
+      }
+    } else {
+      header.style.top = "0";
+    }
+    lastScrollTop = scrollTop;
+  });
+
+  let location = window.location.pathname;
+
+  if (location === "/") {
+    home.classList.add("active");
+  } else if (location === "/productos") {
+    products.classList.add("active");
+  } else if (location === "/quienes-somos") {
+    whoWeAre.classList.add("active");
+  } else if (location === "/contacto") {
+    contact.classList.add("active");
+  }
+
+  menuButton.addEventListener("click", () => {
+    menu.classList.toggle("expanded");
+    menuButton.classList.toggle("expanded");
+  });
+</script>

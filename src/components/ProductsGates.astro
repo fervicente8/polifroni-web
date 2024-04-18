@@ -2,31 +2,6 @@
 import GateImage from "../assets/images/products-gate.png";
 ---
 
-<script>
-  document.addEventListener("scroll", () => {
-    const imageContainer = document.querySelector(".image-container-4");
-    const image = imageContainer.querySelector("img");
-    const scrollPosition = window.scrollY;
-
-    const imageOffset = scrollPosition * 0.03;
-
-    image.style.transform = `translateY(${imageOffset}px)`;
-  });
-
-  const descContainer = document.querySelector(".desc-container-4");
-
-  const description4Observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        descContainer.classList.add("animate-fade-in-down");
-        observer.unobserve(descContainer);
-      }
-    });
-  });
-
-  description4Observer.observe(descContainer);
-</script>
-
 <section class='md:flex md:items-center'>
   <div class='image-container-4'>
     <img src={GateImage.src} alt='Imagen puerta de exterior' loading='lazy' />
@@ -82,3 +57,28 @@ import GateImage from "../assets/images/products-gate.png";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const imageContainer = document.querySelector(".image-container-4");
+    const image = imageContainer.querySelector("img");
+    const scrollPosition = window.scrollY;
+
+    const imageOffset = scrollPosition * 0.03;
+
+    image.style.transform = `translateY(${imageOffset}px)`;
+  });
+
+  const descContainer = document.querySelector(".desc-container-4");
+
+  const description4Observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        descContainer.classList.add("animate-fade-in-down");
+        observer.unobserve(descContainer);
+      }
+    });
+  });
+
+  description4Observer.observe(descContainer);
+</script>

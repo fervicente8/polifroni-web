@@ -1,53 +1,24 @@
 ---
-import ExteriorImage from "../assets/images/products-exterior-door.png";
+import DoorImage from "../assets/images/products-door.png";
 ---
-
-<script>
-  document.addEventListener("scroll", () => {
-    const imageContainer = document.querySelector(".image-container-2");
-    const image = imageContainer.querySelector("img");
-    const scrollPosition = window.scrollY;
-
-    const imageOffset = scrollPosition * 0.05;
-
-    image.style.transform = `translateY(${imageOffset}px)`;
-  });
-
-  const descContainer = document.querySelector(".desc-container-2");
-
-  const description2Observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        descContainer.classList.add("animate-fade-in-down");
-        observer.unobserve(descContainer);
-      }
-    });
-  });
-
-  description2Observer.observe(descContainer);
-</script>
 
 <section class='md:flex md:items-center'>
   <div class='image-container-2'>
-    <img
-      src={ExteriorImage.src}
-      alt='Imagen puerta de exterior'
-      loading='lazy'
-    />
+    <img src={DoorImage.src} alt='Imagen puerta de exterior' loading='lazy' />
   </div>
   <div class='desc-container-2 my-8 px-5 md:text-end'>
-    <h1 class='text-2xl'>Puertas de exterior</h1>
+    <h1 class='text-2xl'>Puertas</h1>
     <p class='mt-2 mb-6'>
       ¡Descubre la elegancia, seguridad y tecnología en cada entrada de tu
-      hogar! Te ofrecemos una selección excepcional de puertas de exterior que
-      no solo realzarán la belleza arquitectónica de tu casa, sino que también
+      hogar! Te ofrecemos una selección excepcional de puertas que no solo
+      realzarán la belleza arquitectónica de tu casa, sino que también
       garantizarán la máxima seguridad y comodidad gracias a la incorporación de
       la última tecnología. Nuestras puertas están diseñadas con los más altos
       estándares de calidad, combinando diseño, funcionalidad e innovación para
       ofrecerte soluciones ideales para cualquier estilo y necesidad.
     </p>
     <a
-      href='/productos/puertas-exterior'
+      href='/productos/puertas'
       class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
     >
       Ver más
@@ -85,3 +56,28 @@ import ExteriorImage from "../assets/images/products-exterior-door.png";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const imageContainer = document.querySelector(".image-container-2");
+    const image = imageContainer.querySelector("img");
+    const scrollPosition = window.scrollY;
+
+    const imageOffset = scrollPosition * 0.05;
+
+    image.style.transform = `translateY(${imageOffset}px)`;
+  });
+
+  const descContainer = document.querySelector(".desc-container-2");
+
+  const description2Observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        descContainer.classList.add("animate-fade-in-down");
+        observer.unobserve(descContainer);
+      }
+    });
+  });
+
+  description2Observer.observe(descContainer);
+</script>

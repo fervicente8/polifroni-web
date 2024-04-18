@@ -2,31 +2,6 @@
 import WindowImage from "../assets/images/products-window.png";
 ---
 
-<script>
-  document.addEventListener("scroll", () => {
-    const imageContainer = document.querySelector(".image-container-3");
-    const image = imageContainer.querySelector("img");
-    const scrollPosition = window.scrollY;
-
-    const imageOffset = scrollPosition * 0.05;
-
-    image.style.transform = `translateY(${imageOffset}px)`;
-  });
-
-  const descContainer = document.querySelector(".desc-container-3");
-
-  const description3Observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        descContainer.classList.add("animate-fade-in-down");
-        observer.unobserve(descContainer);
-      }
-    });
-  });
-
-  description3Observer.observe(descContainer);
-</script>
-
 <section class='md:flex md:flex-row-reverse md:items-center'>
   <div class='image-container-3'>
     <img src={WindowImage.src} alt='Imagen puerta de interior' loading='lazy' />
@@ -81,3 +56,28 @@ import WindowImage from "../assets/images/products-window.png";
     }
   }
 </style>
+
+<script>
+  document.addEventListener("scroll", () => {
+    const imageContainer = document.querySelector(".image-container-3");
+    const image = imageContainer.querySelector("img");
+    const scrollPosition = window.scrollY;
+
+    const imageOffset = scrollPosition * 0.05;
+
+    image.style.transform = `translateY(${imageOffset}px)`;
+  });
+
+  const descContainer = document.querySelector(".desc-container-3");
+
+  const description3Observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        descContainer.classList.add("animate-fade-in-down");
+        observer.unobserve(descContainer);
+      }
+    });
+  });
+
+  description3Observer.observe(descContainer);
+</script>
