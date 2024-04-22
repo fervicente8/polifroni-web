@@ -1,5 +1,11 @@
 ---
 import GateImage from "../assets/images/products-gate.png";
+
+interface Props {
+  redirect: boolean;
+}
+
+const { redirect } = Astro.props;
 ---
 
 <section class='md:flex md:items-center'>
@@ -18,12 +24,16 @@ import GateImage from "../assets/images/products-gate.png";
       variedad de materiales y acabados que se adaptan a tus gustos y
       preferencias.
     </p>
-    <a
-      href='/productos/puertas-exterior'
-      class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
-    >
-      Ver más
-    </a>
+    {
+      redirect && (
+        <a
+          href='/productos/puertas-exterior'
+          class='text-[#862e44] font-bold hover:underline border border-[#862e44] py-2 px-4'
+        >
+          Ver más
+        </a>
+      )
+    }
   </div>
 </section>
 

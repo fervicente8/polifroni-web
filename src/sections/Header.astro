@@ -186,7 +186,7 @@ import logo from "../assets/logos/logo.png";
   window.addEventListener("scroll", function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
+    if (scrollTop > 85.5 && scrollTop > lastScrollTop) {
       header.style.top = "-85.5px";
       if (
         menu.classList.contains("expanded") &&
