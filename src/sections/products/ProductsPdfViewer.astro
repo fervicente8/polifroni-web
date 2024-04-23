@@ -2,26 +2,38 @@
 import pvcDoorsPdf from "./pdf/pvc-doors-catalog.pdf";
 import pvcWindowsPdf from "./pdf/pvc-windows-catalog.pdf";
 import pvcCurtainsPdf from "./pdf/pvc-curtains-catalog.pdf";
+
+interface Props {
+  product: string;
+}
+
+const { product } = Astro.props;
 ---
 
 <section
   class='py-7 h-auto flex flex-col gap-7 bg-black/80 lg:flex-row flex-wrap justify-center lg:px-4'
 >
-  <div class='md:flex-1 md:min-w-[600px]'>
-    <h3>Puertas plegadizas</h3>
-    <iframe src={pvcDoorsPdf + "#toolbar=0"} width='100%'></iframe>
-  </div>
-  <div class='md:flex-1 md:min-w-[600px]'>
-    <h3>Ventanas</h3>
+  {
+    product === "pvc" && (
+      <>
+        <div class='md:flex-1 md:min-w-[600px]'>
+          <h3>Puertas plegadizas</h3>
+          <iframe src={pvcDoorsPdf + "#toolbar=0"} width='100%' />
+        </div>
+        <div class='md:flex-1 md:min-w-[600px]'>
+          <h3>Cortinas</h3>
+          <iframe src={pvcCurtainsPdf + "#toolbar=0"} width='100%' />
+        </div>
+        <div class='md:flex-1 md:min-w-[600px]'>
+          <h3>Ventanas</h3>
 
-    <iframe src={pvcWindowsPdf + "#toolbar=0"} width='100%'></iframe>
-  </div>
-  <div class='md:flex-1 md:min-w-[600px]'>
-    <h3>Cortinas</h3>
-    <iframe src={pvcCurtainsPdf + "#toolbar=0"} width='100%'></iframe>
-  </div>
+          <iframe src={pvcWindowsPdf + "#toolbar=0"} width='100%' />
+        </div>
+      </>
+    )
+  }
 </section>
-<p class='pb-7 text-center bg-black/80 text-white font-bold text-lg'>
+<p class='pb-7 text-center bg-black/80 text-white font-bold text-base'>
   Tu consulta no molesta
 </p>
 
