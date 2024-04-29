@@ -1,0 +1,107 @@
+<nav class='navbar' id='nav-who'>
+  <ul>
+    <li>
+      <a href='#quienes-somos'>Quienes somos</a>
+    </li>
+    <li>
+      <a href='#historia'>Historia</a>
+    </li>
+    <li>
+      <a href='#vision'>Visión</a>
+    </li>
+    <li>
+      <a href='#mision'>Misión</a>
+    </li>
+  </ul>
+</nav>
+<div class='div-whitespace'></div>
+
+<style>
+  .navbar {
+    width: 100vw;
+    overflow-x: hidden;
+    position: fixed;
+    top: 85.5px;
+    background-color: #333;
+    padding: 8px;
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .navbar a {
+    user-select: none;
+    text-decoration: none;
+    font-size: 16px;
+    color: #818181;
+  }
+
+  .navbar a:hover {
+    color: #f1f1f1;
+  }
+
+  .navbar a.active {
+    color: #f1f1f1;
+  }
+
+  .div-whitespace {
+    height: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .navbar ul {
+      gap: 30px;
+    }
+
+    .navbar li {
+      text-align: center;
+    }
+
+    .navbar a {
+      font-size: 15px;
+    }
+
+    .div-whitespace {
+      height: 38.5px;
+    }
+  }
+
+  @media screen and (max-width: 344px) {
+    .div-whitespace {
+      height: 64px;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById("nav-who");
+
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    if (scrollTop > 50 && scrollTop > lastScrollTop) {
+      header.style.top = "-85.5px";
+    } else {
+      header.style.top = "85.5px";
+    }
+    lastScrollTop = scrollTop;
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const links = document.querySelectorAll(".navbar a");
+    links.forEach((link) => {
+      link.addEventListener("click", function () {
+        links.forEach((link) => link.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  });
+</script>

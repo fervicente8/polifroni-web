@@ -1,0 +1,33 @@
+<section id='vision' class='who-vision w-[100%] md:w-[97%] m-auto'>
+  <h4
+    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 mb-8 mt-8 2xl:text-xl'
+  >
+    Nuestra visión
+  </h4>
+  <p class='text-sm lg:text-lg text-[#333333] text-center px-1'>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita, modi
+    tenetur libero inventore enim distinctio accusamus impedit veritatis autem
+    hic maxime veniam vel qui pariatur esse, sequi natus nam consequatur. Lorem
+    ipsum dolor sit amet consectetur adipisicing elit. Animi saepe nisi
+    veritatis debitis, maxime unde ducimus similique perspiciatis itaque sunt
+    dignissimos quae inventore qui quos delectus dolores iste reiciendis. Quos.
+  </p>
+</section>
+
+<script>
+  const text = document.querySelectorAll(".who-vision p");
+
+  const textObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-down");
+
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  text.forEach((text) => {
+    textObserver.observe(text);
+  });
+</script>

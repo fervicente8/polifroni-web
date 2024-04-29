@@ -1,0 +1,110 @@
+---
+import History1 from "../assets/images/history-1.jpg";
+import History2 from "../assets/images/history-2.jpg";
+import History3 from "../assets/images/history-3.jpg";
+import History4 from "../assets/images/history-4.jpg";
+import History5 from "../assets/images/history-5.jpg";
+import History6 from "../assets/images/history-6.jpg";
+import History7 from "../assets/images/history-7.jpg";
+import History8 from "../assets/images/history-8.jpg";
+import History9 from "../assets/images/history-9.jpg";
+import History10 from "../assets/images/history-10.jpg";
+import History11 from "../assets/images/history-11.jpg";
+import History12 from "../assets/images/history-12.jpg";
+---
+
+<section id='historia' class='who-history w-[100%] md:w-[97%] m-auto'>
+  <h4
+    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 mb-8 mt-8 2xl:text-xl'
+  >
+    Nuestra historia
+  </h4>
+  <p class='italic text-sm lg:text-lg text-gray-600 text-center px-2 mb-4'>
+    El 2 de noviembre de 1972, nacía Polifroni Puertas en la ciudad de Tandil,
+    Provincia de Buenos Aires. El fundador de esta empresa, que 45 años después
+    sigue en pie y creciendo, fue Pablo Polifroni, que por supuesto no fue un
+    improvisado ni "paracaidista" en el tema, ya que por ese entonces poseía un
+    gran conocimiento y trayectoria en el rubro.
+  </p>
+  <p class='text-sm lg:text-lg text-[#333333] text-start px-1 mb-4'>
+    En base a un trabajo serio y comprometido, Polifroni puertas comenzó a tomar
+    notoriedad tanto en Tandil como en localidades vecinas. El rápido
+    crecimiento de la empresa, sumado a la creciente demanda que el rubro
+    presentaba, se incorporaron a la firma tandilense los dos yernos del señor
+    Pablo Polifroni: ellos fueron el señor Natalio Oscar González y Rubén Ángel
+    Sabino. De esta manera, Así la empresa tomo un aire familiar poniendo en
+    manifiesto el esfuerzo y el entusiasmo en el negocio, algo que hasta el
+    momento continúa.
+  </p>
+  <p class='text-sm lg:text-lg text-[#333333] text-start px-1 mb-4'>
+    Con el transcurrir de los años, la empresa se fue ganando su lugar y esto
+    obligó a su inevitable crecimiento. Por eso, mientras corría el año 1980,
+    sus responsables tomaron nota y decidieron expandir su producción: se
+    propusieron instalar un taller de fabricación propia para pedidos
+    especiales. Esto no fue algo sencillo, pues se debía contar con un personal
+    capacitado. Pero tanto con la experiencia de Pablo como Rubén, se fue
+    perfeccionado al personal para formar un plantel de artesanos de excelencia,
+    con tanta pasión que aun hoy, forman parte de la empresa.
+  </p>
+  <p class='text-sm lg:text-lg text-[#333333] text-start px-1 mb-4'>
+    Sin embargo, nada cambió. O tal vez sí, pero para mejor. Con el correr de
+    los años, Polifroni Puertas supo adaptarse al mercado del momento y a través
+    de la demanda fue incorporando servicios. Tal es así que en el año 2006 se
+    creó la división de Carpintería en PVC, demostrando una vez más la capacidad
+    de adaptación de la empresa a las nuevas tendencias del mercado.
+  </p>
+  <p class='text-sm lg:text-lg text-[#333333] text-start px-1 mb-4'>
+    Javier Viera, su gerente actual, sostiene que el objetivo de Polifroni
+    Puertas es "ser una empresa de fabricación y venta de aberturas líder y en
+    continuo crecimiento, con presencia zonal, que se distinga por proporcionar
+    calidad de servicios a sus clientes".
+  </p>
+  <p class='text-sm lg:text-lg text-[#333333] text-start px-1 mb-4'>
+    Hoy, 45 años después de que Pablo Polifroni puso el primer ladrillo de esta
+    pirámide, el objetivo se está cumpliendo, colocando a la empresa en lo más
+    alto del rubro. Sus años de experiencia, su personal altamente capacitado,
+    la seriedad y el respaldo comercial, la atención personalizada y la
+    vanguardia en tecnología y calidad, hacen de Polifroni Puertas la mejor
+    opción. Como dicen su slogan, es "una marca que sintetiza calidad y
+    confianza".
+  </p>
+  <div class='flex flex-wrap justify-center gap-1 mb-4'>
+    <img src={History1.src} alt='1' />
+    <img src={History2.src} alt='2' />
+    <img src={History3.src} alt='3' />
+    <img src={History4.src} alt='4' />
+    <img src={History5.src} alt='5' />
+    <img src={History6.src} alt='6' />
+    <img src={History7.src} alt='7' />
+    <img src={History8.src} alt='8' />
+    <img src={History9.src} alt='9' />
+    <img src={History10.src} alt='10' />
+    <img src={History11.src} alt='11' />
+    <img src={History12.src} alt='12' />
+  </div>
+  <a
+    class='text-[0.7rem] lg:text-[0.9rem] text-gray-600 px-1'
+    target='_blank'
+    href='https://eldiariodetandil.com/2018/05/02/polifroni-45-a%C3%B1os-abriendole-las-puertas-a-los-tandilenses'
+  >
+    Fuente: El Diario de Tandil
+  </a>
+</section>
+
+<script>
+  const text = document.querySelectorAll(".who-history p");
+
+  const textObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-down");
+
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  text.forEach((text) => {
+    textObserver.observe(text);
+  });
+</script>

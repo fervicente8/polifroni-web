@@ -184,9 +184,23 @@ import logo from "../assets/logos/logo.png";
   let lastScrollTop = 0;
 
   window.addEventListener("scroll", function () {
+    let path = window.location.pathname;
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop > 85.5 && scrollTop > lastScrollTop) {
+    if (path.includes("quienes-somos")) {
+      if (scrollTop > 149.5 && scrollTop > lastScrollTop) {
+        header.style.top = "-149.5px";
+        if (
+          menu.classList.contains("expanded") &&
+          menuButton.classList.contains("expanded")
+        ) {
+          menu.classList.remove("expanded");
+          menuButton.classList.remove("expanded");
+        }
+      } else {
+        header.style.top = "0";
+      }
+    } else if (scrollTop > 85.5 && scrollTop > lastScrollTop) {
       header.style.top = "-85.5px";
       if (
         menu.classList.contains("expanded") &&

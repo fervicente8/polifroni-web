@@ -1,0 +1,29 @@
+<section id='quienes-somos' class='who-we-are w-[100%] md:w-[97%] m-auto'>
+  <h4
+    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 mb-8 mt-8 2xl:text-xl'
+  >
+    ¿Quienes somos?
+  </h4>
+  <p class='text-sm lg:text-lg text-[#333333] text-center px-1'>
+    "Somos una empresa de fabricación y venta de aberturas líder - Nuestro
+    espíritu es estar en continuo crecimiento ofreciendo calidad y servicio"
+  </p>
+</section>
+
+<script>
+  const text = document.querySelectorAll(".who-we-are p");
+
+  const textObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-down");
+
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  text.forEach((text) => {
+    textObserver.observe(text);
+  });
+</script>
