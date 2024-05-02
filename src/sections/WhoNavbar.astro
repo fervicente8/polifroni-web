@@ -4,13 +4,13 @@
       <a href='#quienes-somos'>Quienes somos</a>
     </li>
     <li>
-      <a href='#historia'>Historia</a>
-    </li>
-    <li>
       <a href='#vision'>Visión</a>
     </li>
     <li>
       <a href='#mision'>Misión</a>
+    </li>
+    <li>
+      <a href='#historia'>Historia</a>
     </li>
   </ul>
 </nav>
@@ -87,7 +87,7 @@
 
   window.addEventListener("scroll", function () {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    if (scrollTop > 50 && scrollTop > lastScrollTop) {
+    if (scrollTop > 149.5 && scrollTop > lastScrollTop) {
       header.style.top = "-85.5px";
     } else {
       header.style.top = "85.5px";
@@ -97,10 +97,45 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll(".navbar a");
+    const navbarHeight = 125.5;
+    const windowHeight = window.innerHeight;
+    const centerPosition = (windowHeight - navbarHeight) / 2;
+
+    window.addEventListener("scroll", () => {
+      links.forEach((link) => {
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        const targetPosition = targetElement.getBoundingClientRect().top;
+        if (
+          targetPosition <= centerPosition &&
+          targetPosition >= -centerPosition
+        ) {
+          links.forEach((link) => link.classList.remove("active"));
+          link.classList.add("active");
+        } else {
+          link.classList.remove("active");
+        }
+      });
+    });
+
     links.forEach((link) => {
-      link.addEventListener("click", function () {
-        links.forEach((link) => link.classList.remove("active"));
-        this.classList.add("active");
+      link.addEventListener("click", function (event) {
+        event.preventDefault();
+        const targetId = this.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetId === "historia") {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+            inline: "nearest",
+          });
+        } else {
+          targetElement.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "nearest",
+          });
+        }
       });
     });
   });

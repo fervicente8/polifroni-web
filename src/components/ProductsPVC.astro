@@ -10,7 +10,7 @@ const { redirect } = Astro.props;
 
 <section class='md:flex md:flex-row-reverse md:items-center'>
   <div class='image-container'>
-    <img src={PVCImage.src} alt='Imagen puerta de interior' />
+    <img src={PVCImage.src} alt='Imagen puerta de interior' loading='lazy' />
   </div>
   <div class='desc-container my-8 px-5'>
     <h1 class='text-2xl'>Productos PVC</h1>
