@@ -1,21 +1,37 @@
+---
+import MisionIcon from "../assets/images/mision.webp";
+---
+
 <section id='mision' class='who-mision w-[100%] md:w-[97%] m-auto'>
   <h4
-    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 mb-8 mt-8 2xl:text-xl'
+    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 my-20 2xl:text-xl'
   >
     Nuestra misión
   </h4>
-  <p class='text-sm lg:text-lg text-[#333333] text-center px-1'>
-    En Polifroni Puertas, nuestra misión es ofrecer soluciones integrales en
-    aberturas que superen las expectativas de nuestros clientes en cuanto a
-    calidad, diseño y funcionalidad. Nos comprometemos a mantenernos a la
-    vanguardia de la innovación, garantizando la excelencia en cada etapa, desde
-    el diseño y la fabricación hasta la instalación y el servicio postventa. Nos
-    esforzamos por construir relaciones duraderas con nuestros clientes, basadas
-    en la confianza, la transparencia y el compromiso con la satisfacción del
-    cliente. Además, nos comprometemos a contribuir activamente al desarrollo
-    sostenible, ofreciendo soluciones que promuevan la eficiencia energética y
-    la conservación de recursos naturales.
-  </p>
+  <div
+    class='flex justify-around md:flex-row-reverse items-center flex-wrap gap-6'
+  >
+    <img
+      src={MisionIcon.src}
+      alt='Mision icono'
+      loading='lazy'
+      class='w-[150px] md:w-[250px]'
+    />
+    <p
+      class='w-[100%] text-sm md:w-[75%] md:text-lg lg:text-xl text-[#333333] text-center px-2'
+    >
+      En Polifroni Puertas, nuestra misión es ofrecer soluciones integrales en
+      aberturas que superen las expectativas de nuestros clientes en cuanto a
+      calidad, diseño y funcionalidad. Nos comprometemos a mantenernos a la
+      vanguardia de la innovación, garantizando la excelencia en cada etapa,
+      desde el diseño y la fabricación hasta la instalación y el servicio
+      postventa. Nos esforzamos por construir relaciones duraderas con nuestros
+      clientes, basadas en la confianza, la transparencia y el compromiso con la
+      satisfacción del cliente. Además, nos comprometemos a contribuir
+      activamente al desarrollo sostenible, ofreciendo soluciones que promuevan
+      la eficiencia energética y la conservación de recursos naturales.
+    </p>
+  </div>
 </section>
 
 <script>

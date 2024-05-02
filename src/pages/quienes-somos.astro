@@ -3,13 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import WhoHistory from "../sections/WhoHistory.astro";
 import WhoNavbar from "../sections/WhoNavbar.astro";
 import WhoVision from "../sections/WhoVision.astro";
-import WhoWeAre from "../sections/WhoWeAre.astro";
 import WhoMision from "../sections/WhoMision.astro";
+import WhoImage from "../assets/images/who-banner.webp";
 ---
 
 <Layout title='Polifroni Aberturas - Quienes Somos'>
   <WhoNavbar />
-  <WhoWeAre />
+  <img
+    src={WhoImage.src}
+    alt='Foto de Polifroni'
+    loading='lazy'
+    class='w-[100%] h-[350px] mt-4 md:w-[97%] md:h-[600px] m-auto object-cover'
+  />
   <WhoVision />
   <WhoMision />
   <WhoHistory />
