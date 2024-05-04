@@ -7,13 +7,15 @@ import logo from "../assets/logos/logo.webp";
   id='nav'
   class='nav flex justify-between items-center py-3 px-2 md:px-6 border-b-2'
 >
-  <img
-    src={logo.src}
-    loading='lazy'
-    width={170}
-    class='logo'
-    alt='Descripción de mi imagen'
-  />
+  <a href='/'>
+    <img
+      src={logo.src}
+      loading='lazy'
+      width={170}
+      class='logo'
+      alt='Descripción de mi imagen'
+    />
+  </a>
   <div class='menu sm:flex sm:gap-5'>
     <a href='/' class='a-text home font-semibold sm:text-lg'>Inicio</a>
     <a href='/productos' class='a-text products font-semibold sm:text-lg'

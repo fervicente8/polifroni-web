@@ -1,0 +1,89 @@
+---
+import LogoPotenza from "../assets/logos/logo-potenza.webp";
+import LogoOblak from "../assets/logos/logo-oblak.webp";
+import LogoBarmetal from "../assets/logos/logo-barmetal.webp";
+import LogoAdramet from "../assets/logos/logo-adramet.webp";
+import LogoAbermax from "../assets/logos/logo-abermax.webp";
+import LogoPlaccorr from "../assets/logos/logo-placcorr.webp";
+import LogoCarpinteriaTotal from "../assets/logos/logo-carpinteria-total.webp";
+---
+
+<section class='mb-14'>
+  <div
+    class='suppliers-2-container flex justify-center items-center gap-4 sm:gap-14 flex-wrap'
+  >
+    <a href='https://mpotenza.com.ar/' target='_blank'>
+      <img src={LogoPotenza.src} alt='Logo 1' class='supplier-image border' />
+    </a>
+    <a href='https://www.oblak.com.ar/' target='_blank'>
+      <img src={LogoOblak.src} alt='Logo 2' class='supplier-image border' />
+    </a>
+    <a href='https://barmetal.com.ar/' target='_blank'>
+      <img src={LogoBarmetal.src} alt='Logo 3' class='supplier-image border' />
+    </a>
+    <a href='https://www.adramet.com.ar/' target='_blank'>
+      <img src={LogoAdramet.src} alt='Logo 4' class='supplier-image border' />
+    </a>
+    <a href='https://www.abermax.com.ar/' target='_blank'>
+      <img src={LogoAbermax.src} alt='Logo 5' class='supplier-image border' />
+    </a>
+    <a href='https://placcorr.com.ar/' target='_blank'>
+      <img src={LogoPlaccorr.src} alt='Logo 6' class='supplier-image border' />
+    </a>
+    <p>
+      <img
+        src={LogoCarpinteriaTotal.src}
+        alt='Logo 7'
+        class='supplier-image border'
+      />
+    </p>
+  </div>
+</section>
+
+<style>
+  .suppliersContainer {
+    opacity: 0;
+  }
+
+  .supplier-image {
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    width: 100px;
+    filter: grayscale(100%);
+    opacity: 0.8;
+    border: 1px solid #373536;
+  }
+
+  .supplier-image:hover {
+    filter: grayscale(0);
+    opacity: 1;
+  }
+
+  @keyframes animate-fade-in-down {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 0.8;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script>
+  const suppliersContainer = document.querySelector(".suppliers-2-container");
+
+  const suppliersObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        suppliersContainer.classList.add("animate-fade-in-down");
+
+        observer.unobserve(suppliersContainer);
+      }
+    });
+  });
+
+  suppliersObserver.observe(suppliersContainer);
+</script>

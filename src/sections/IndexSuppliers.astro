@@ -1,6 +1,12 @@
 ---
-import LogoPolifroni from "../assets/logos/logo-polifroni.webp";
 import LogoPavir from "../assets/logos/logo-pavir.webp";
+import LogoMuchtek from "../assets/logos/logo-muchtek.webp";
+import LogoGuHerrajes from "../assets/logos/logo-gu-herrajes.webp";
+import LogoAssaabloy from "../assets/logos/logo-assaabloy.webp";
+import LogoRoto from "../assets/logos/logo-roto.webp";
+import LogoAluar from "../assets/logos/logo-aluar.webp";
+import LogoGiesse from "../assets/logos/logo-giesse.webp";
+import LogoTanit from "../assets/logos/logo-tanit.webp";
 ---
 
 <section class='mb-14'>
@@ -10,13 +16,36 @@ import LogoPavir from "../assets/logos/logo-pavir.webp";
   <div
     class='suppliers-container flex justify-center items-center gap-4 sm:gap-14 flex-wrap'
   >
-    <img src={LogoPolifroni.src} alt='Logo 1' class='supplier-image' />
     <a href='https://pavir.com.ar/' target='_blank'>
+      <img src={LogoPavir.src} alt='Logo 1' class='supplier-image border' />
+    </a>
+    <a
+      href='https://muchtek.com/muchtek/?gad_source=1&gclid=EAIaIQobChMI3ZvrrKTyhQMV54bCCB0zpQ0nEAAYASAAEgL3APD_BwE'
+      target='_blank'
+    >
+      <img src={LogoMuchtek.src} alt='Logo 2' class='supplier-image border' />
+    </a>
+    <a href='https://www.gu-herrajes.com.ar/' target='_blank'>
       <img
-        src={LogoPavir.src}
+        src={LogoGuHerrajes.src}
         alt='Logo 3'
-        class='supplier-image border border-black'
+        class='supplier-image border'
       />
+    </a>
+    <a href='https://www.assaabloy.com/es/es' target='_blank'>
+      <img src={LogoAssaabloy.src} alt='Logo 4' class='supplier-image border' />
+    </a>
+    <a href='https://www.roto-click.com/' target='_blank'>
+      <img src={LogoRoto.src} alt='Logo 5' class='supplier-image border' />
+    </a>
+    <a href='https://www.aluar.com.ar/' target='_blank'>
+      <img src={LogoAluar.src} alt='Logo 5' class='supplier-image border' />
+    </a>
+    <a href='https://www.giesse.it/es/' target='_blank'>
+      <img src={LogoGiesse.src} alt='Logo 6' class='supplier-image border' />
+    </a>
+    <a href='http://www.tanit.com.ar/' target='_blank'>
+      <img src={LogoTanit.src} alt='Logo 7' class='supplier-image border' />
     </a>
   </div>
 </section>
@@ -29,10 +58,11 @@ import LogoPavir from "../assets/logos/logo-pavir.webp";
   .supplier-image {
     cursor: pointer;
     border-radius: 10px;
-    transition: all 0.5s ease-in-out;
-    width: 130px;
+    transition: all 0.3s ease-in-out;
+    width: 100px;
     filter: grayscale(100%);
     opacity: 0.8;
+    border: 1px solid #373536;
   }
 
   .supplier-image:hover {
