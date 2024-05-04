@@ -1,0 +1,81 @@
+---
+import ValorIcon from "../assets/images/valor.webp";
+---
+
+<section id='valores' class='who-valores w-[100%] md:w-[97%] m-auto'>
+  <h4
+    class='text-base text-center md:text-lg uppercase bg-[#862e44] text-white p-3 my-8 md:my-20 2xl:text-xl'
+  >
+    Nuestros valores
+  </h4>
+  <div class='flex justify-around items-center flex-wrap gap-12 md:gap-6'>
+    <img
+      src={ValorIcon.src}
+      alt='Mision icono'
+      loading='lazy'
+      class='w-[150px] md:w-[250px]'
+    />
+    <ul class='w-[100%] md:w-[75%] list-disc'>
+      <li
+        class='w-[100%] text-sm md:text-lg lg:text-xl text-[#333333] text-start px-2 mb-2 hyphens-auto'
+      >
+        <span class='font-bold'>Compromiso con el cliente:</span> Priorizamos las
+        necesidades y expectativas de nuestros clientes en cada etapa de nuestro
+        proceso, desde la fabricación hasta la post venta. Nos esforzamos por entender
+        y satisfacer sus requerimientos de manera proactiva y eficiente.
+      </li>
+      <li
+        class='w-[100%] text-sm md:text-lg lg:text-xl text-[#333333] text-start px-2 mb-2 hyphens-auto'
+      >
+        <span class='font-bold'>Calidad y confiabilidad:</span> Nos comprometemos
+        a ofrecer productos de la más alta calidad, fabricados con materiales duraderos
+        y técnicas de producción avanzadas. Nos enorgullecemos de la fiabilidad y
+        la excelencia de nuestras aberturas, respaldadas por décadas de experiencia
+        y conocimientos en el rubro.
+      </li>
+      <li
+        class='w-[100%] text-sm md:text-lg lg:text-xl text-[#333333] text-start px-2 mb-2 hyphens-auto'
+      >
+        <span class='font-bold'>Integridad y transparencia:</span> Mantenemos estándares
+        éticos rigurosos en todas nuestras operaciones. Nos comprometemos a actuar
+        con honestidad, transparencia y responsabilidad en todas nuestras interacciones,
+        tanto internas como externas.
+      </li>
+      <li
+        class='w-[100%] text-sm md:text-lg lg:text-xl text-[#333333] text-start px-2 mb-2 hyphens-auto'
+      >
+        <span class='font-bold'>Innovación continua:</span> Buscamos constantemente
+        nuevas formas de mejorar nuestros productos, procesos y servicios. Fomentamos
+        la creatividad y la innovación entre nuestro equipo para adaptarnos a las
+        últimas tendencias del mercado y satisfacer las cambiantes necesidades de
+        nuestros clientes.
+      </li>
+      <li
+        class='w-[100%] text-sm md:text-lg lg:text-xl text-[#333333] text-start px-2 hyphens-auto'
+      >
+        <span class='font-bold'>Trabajo en equipo:</span> Valoramos y respetamos
+        la diversidad de talentos, ideas y perspectivas dentro de nuestro equipo.
+        Fomentamos un ambiente colaborativo donde cada miembro se sienta valorado,
+        escuchado y motivado a contribuir al éxito colectivo de la empresa.
+      </li>
+    </ul>
+  </div>
+</section>
+
+<script>
+  const text = document.querySelectorAll(".who-valores p");
+
+  const textObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-down");
+
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  text.forEach((text) => {
+    textObserver.observe(text);
+  });
+</script>
