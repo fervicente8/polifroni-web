@@ -80,6 +80,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar") as HTMLElement;
     const links = document.querySelectorAll(".navbar a");
     const sections = document.querySelectorAll("section");
 
@@ -106,8 +107,27 @@
       });
     }
 
+    function scrollToSection(e) {
+      e.preventDefault();
+      const targetId = e.target.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+      const navbarHeight = navbar.offsetHeight;
+      const scrollTo =
+        targetSection.offsetTop -
+        (window.innerHeight / 2 - targetSection.offsetHeight / 2) -
+        navbarHeight;
+      window.scrollTo({
+        top: scrollTo,
+        behavior: "smooth",
+      });
+    }
+
     window.addEventListener("scroll", updateActiveLink);
     window.addEventListener("resize", updateActiveLink);
+
+    links.forEach((link) => {
+      link.addEventListener("click", scrollToSection);
+    });
 
     updateActiveLink();
   });
