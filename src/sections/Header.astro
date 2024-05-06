@@ -18,9 +18,35 @@ import logo from "../assets/logos/logo.webp";
   </a>
   <div class='menu sm:flex sm:gap-5'>
     <a href='/' class='a-text home font-semibold sm:text-lg'>Inicio</a>
-    <a href='/productos' class='a-text products font-semibold sm:text-lg'
-      >Productos</a
-    >
+    <div class='products-wrapper a-text'>
+      <p
+        class='a-text-submenu submenu-button products cursor-pointer font-semibold sm:text-lg'
+      >
+        Productos
+      </p>
+      <ul class='submenu'>
+        <li>
+          <a href='/productos/productos-pvc' class='a-text p-pvc sm:text-lg'
+            >Productos PVC</a
+          >
+        </li>
+        <li>
+          <a href='/productos/puertas' class='a-text p-doors sm:text-lg'
+            >Puertas</a
+          >
+        </li>
+        <li>
+          <a href='/productos/ventanas' class='a-text p-windows sm:text-lg'
+            >Ventanas</a
+          >
+        </li>
+        <li>
+          <a href='/productos/portones' class='a-text p-gates sm:text-lg'
+            >Portones</a
+          >
+        </li>
+      </ul>
+    </div>
     <a href='/quienes-somos' class='a-text who-we-are font-semibold sm:text-lg'
       >Quiénes somos</a
     >
@@ -109,9 +135,48 @@ import logo from "../assets/logos/logo.webp";
     color: #862e44f1;
   }
 
-  .a-text.active {
+  .a-text-submenu {
+    font-size: 1rem;
+    color: #373536;
+    user-select: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+  .a-text-submenu:hover {
+    color: #862e44f1;
+  }
+
+  .active {
     color: #862e44;
     cursor: default;
+  }
+
+  .products-wrapper {
+    position: relative;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    background-color: white;
+    margin-left: 0;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .submenu.expanded {
+    transform: translateX(-50%);
+    width: max-content;
+    padding: 15px 20px 10px;
+    border-radius: 8px;
+    max-height: 137px;
+    box-shadow: 0px 5px 2px -5px rgba(0, 0, 0, 0.75);
+    transition: max-height 0.3s ease;
+  }
+
+  .submenu-button.expanded {
+    color: #862e44;
   }
 
   @media screen and (max-width: 720px) {
@@ -123,12 +188,15 @@ import logo from "../assets/logos/logo.webp";
       flex-direction: column;
       align-items: flex-start;
       width: 100%;
-      height: 0px;
+      height: 0;
       background-color: #fff;
       border: 1px solid #ccc;
       overflow: hidden;
-      transition: height 0.3s ease-in-out;
-      z-index: 100;
+      z-index: 1000;
+    }
+
+    .menu.expanded {
+      height: max-content;
     }
 
     .menu-button {
@@ -163,26 +231,36 @@ import logo from "../assets/logos/logo.webp";
       padding: 3px 35px 20px;
     }
 
-    .menu.expanded {
-      height: 286px;
+    .submenu {
+      margin-left: 12px;
     }
 
-    @media screen and (max-width: 639px) {
-      .menu.expanded {
-        height: 186px;
-      }
+    .submenu.expanded {
+      position: relative;
+      padding: 0;
+      top: 0;
+      left: -20px;
+      transform: translateX(0);
+      box-shadow: none;
+      max-height: 112px;
     }
   }
 </style>
 
 <script>
   const header = document.getElementById("nav");
-  const menuButton = document.querySelector(".menu-button");
   const menu = document.querySelector(".menu");
+  const menuButton = document.querySelector(".menu-button");
+  const submenu = document.querySelector(".submenu");
+  const submenuButton = document.querySelector(".submenu-button");
   const home = document.querySelector(".home");
-  const products = document.querySelector(".products");
   const whoWeAre = document.querySelector(".who-we-are");
   const contact = document.querySelector(".contact");
+  const products = document.querySelector(".products");
+  const productPvc = document.querySelector(".p-pvc");
+  const productDoors = document.querySelector(".p-doors");
+  const productWindows = document.querySelector(".p-windows");
+  const productGates = document.querySelector(".p-gates");
   let lastScrollTop = 0;
 
   window.addEventListener("scroll", function () {
@@ -210,8 +288,17 @@ import logo from "../assets/logos/logo.webp";
 
   if (location === "/") {
     home.classList.add("active");
-  } else if (location.includes("productos") || location === "/productos") {
+  } else if (location.includes("productos")) {
     products.classList.add("active");
+    if (location === "/productos/productos-pvc") {
+      productPvc.classList.add("active");
+    } else if (location === "/productos/puertas") {
+      productDoors.classList.add("active");
+    } else if (location === "/productos/ventanas") {
+      productWindows.classList.add("active");
+    } else if (location === "/productos/gates") {
+      productGates.classList.add("active");
+    }
   } else if (location === "/quienes-somos") {
     whoWeAre.classList.add("active");
   } else if (location === "/contacto") {
@@ -221,5 +308,31 @@ import logo from "../assets/logos/logo.webp";
   menuButton.addEventListener("click", () => {
     menu.classList.toggle("expanded");
     menuButton.classList.toggle("expanded");
+  });
+
+  submenu.addEventListener("mouseenter", () => {
+    submenu.classList.add("expanded");
+    submenuButton.classList.add("expanded");
+  });
+
+  submenu.addEventListener("mouseleave", () => {
+    submenu.classList.remove("expanded");
+    submenuButton.classList.remove("expanded");
+  });
+
+  submenuButton.addEventListener("mouseenter", () => {
+    submenu.classList.add("expanded");
+    submenuButton.classList.add("expanded");
+  });
+
+  submenuButton.addEventListener("mouseleave", () => {
+    submenu.classList.remove("expanded");
+    submenuButton.classList.remove("expanded");
+  });
+
+  submenuButton.addEventListener("touchstart", function (event) {
+    event.preventDefault();
+    submenu.classList.toggle("expanded");
+    submenuButton.classList.toggle("expanded");
   });
 </script>
