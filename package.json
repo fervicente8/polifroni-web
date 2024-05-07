@@ -10,17 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
     "@astrojs/vercel": "^7.5.2",
     "@midudev/tailwind-animations": "^0.0.7",
-    "@types/react": "^18.2.73",
-    "@types/react-dom": "^18.2.22",
-    "@vercel/analytics": "^1.2.2",
     "astro": "^4.5.9",
     "astro-aws-amplify": "^0.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.1"
   }
 }
