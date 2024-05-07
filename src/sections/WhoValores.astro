@@ -13,7 +13,7 @@ import ValorIcon from "../assets/images/valor.webp";
       src={ValorIcon.src}
       alt='Mision icono'
       loading='lazy'
-      class='w-[150px] md:w-[250px]'
+      class='valor-icon w-[150px] md:w-[250px]'
     />
     <ul class='w-[100%] md:w-[75%] list-disc'>
       <li
@@ -63,19 +63,30 @@ import ValorIcon from "../assets/images/valor.webp";
 </section>
 
 <script>
-  const text = document.querySelectorAll(".who-valores p");
+  const texts = document.querySelectorAll(".who-valores ul li");
+  const icon = document.querySelectorAll(".valor-icon");
 
   const textObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-down");
-
+        entry.target.classList.add("animate-fade-in-right");
         observer.unobserve(entry.target);
       }
     });
   });
 
-  text.forEach((text) => {
+  const iconObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-left");
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  texts.forEach((text) => {
     textObserver.observe(text);
   });
+
+  iconObserver.observe(icon[0]);
 </script>

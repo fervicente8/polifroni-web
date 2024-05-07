@@ -15,7 +15,7 @@ import MisionIcon from "../assets/images/mision.webp";
       src={MisionIcon.src}
       alt='Mision icono'
       loading='lazy'
-      class='w-[150px] md:w-[250px]'
+      class='mision-icon w-[150px] md:w-[250px]'
     />
     <p
       class='w-[100%] text-sm md:w-[75%] md:text-lg lg:text-xl text-[#333333] text-center px-2'
@@ -33,12 +33,22 @@ import MisionIcon from "../assets/images/mision.webp";
 
 <script>
   const text = document.querySelectorAll(".who-mision p");
+  const icon = document.querySelectorAll(".mision-icon");
 
   const textObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("animate-fade-in-down");
+        entry.target.classList.add("animate-fade-in-left");
 
+        observer.unobserve(entry.target);
+      }
+    });
+  });
+
+  const iconObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-fade-in-right");
         observer.unobserve(entry.target);
       }
     });
@@ -47,4 +57,6 @@ import MisionIcon from "../assets/images/mision.webp";
   text.forEach((text) => {
     textObserver.observe(text);
   });
+
+  iconObserver.observe(icon[0]);
 </script>
