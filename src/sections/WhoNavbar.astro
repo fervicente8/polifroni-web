@@ -111,15 +111,11 @@
       e.preventDefault();
       const targetId = e.target.getAttribute("href").substring(1);
       const targetSection = document.getElementById(targetId);
-      const navbarHeight = navbar.offsetHeight;
-      const scrollTo =
-        targetSection.offsetTop -
-        (window.innerHeight / 2 - targetSection.offsetHeight / 2) -
-        navbarHeight;
-      window.scrollTo({
-        top: scrollTo,
-        behavior: "smooth",
-      });
+      if (targetSection.classList.contains("who-history")) {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        targetSection.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
     }
 
     window.addEventListener("scroll", updateActiveLink);
