@@ -62,10 +62,6 @@ let imagesdesktop = [
     margin: auto;
   }
 
-  .image-container {
-    transition: all 0.5s ease-in-out;
-  }
-
   #prevImg {
     position: absolute;
     width: 100%;
@@ -116,19 +112,6 @@ let imagesdesktop = [
     background-color: #333;
   }
 
-  .slide-left {
-    animation: slideLeft 1s forwards;
-  }
-
-  @keyframes slideLeft {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
   @media screen and (min-width: 639px) {
     .image-container {
       width: 300px;
@@ -174,9 +157,9 @@ let imagesdesktop = [
 
   function showImages() {
     const imageContainer = document.querySelector(".image-container");
-    let prevImg = document.getElementById("prevImg") as HTMLImageElement | null;
-    let mainImg = document.getElementById("mainImg") as HTMLImageElement | null;
-    let nextImg = document.getElementById("nextImg") as HTMLImageElement | null;
+    let prevImg = document.getElementById("prevImg") as HTMLImageElement;
+    let mainImg = document.getElementById("mainImg") as HTMLImageElement;
+    let nextImg = document.getElementById("nextImg") as HTMLImageElement;
 
     function createButton(
       buttonTitle: string,
@@ -297,7 +280,7 @@ let imagesdesktop = [
       currentIndex = (currentIndex + 1) % renderedImages.length;
       showImages();
     }
-  }, 10000);
+  }, 5000);
 
   showImages();
 
