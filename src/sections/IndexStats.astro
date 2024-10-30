@@ -119,35 +119,13 @@ import StatSells from "../assets/images/stat-sells.webp";
 
 <script>
   function updateNumber() {
-    const sellsAmount = document.querySelector(".sells-amount");
-    const sellsAmountText = document.querySelector(".sells-amount-text");
     const yearsExperience = document.querySelector(".years-experience");
     const yearsExperienceText = document.querySelector(
       ".years-experience-text"
     );
-    const targetNumber = 100;
     const years = 50;
     let currentNumberA = 0;
     let currentNumberB = 0;
-
-    const amountObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const interval = setInterval(() => {
-            currentNumberA++;
-            sellsAmount.textContent = `+${currentNumberA.toString()}`;
-            sellsAmount.classList.add("animate-fade-in-left");
-            sellsAmountText.classList.add("animate-fade-in-right");
-
-            if (currentNumberA === targetNumber) {
-              clearInterval(interval);
-            }
-          }, 20);
-
-          observer.unobserve(sellsAmount);
-        }
-      });
-    });
 
     const experienceObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
@@ -168,7 +146,6 @@ import StatSells from "../assets/images/stat-sells.webp";
       });
     });
 
-    amountObserver.observe(sellsAmount);
     experienceObserver.observe(yearsExperience);
   }
 
