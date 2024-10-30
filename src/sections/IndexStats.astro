@@ -125,13 +125,12 @@ import StatSells from "../assets/images/stat-sells.webp";
     );
     const years = 50;
     let currentNumberA = 0;
-    let currentNumberB = 0;
 
     const experienceObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const interval = setInterval(() => {
-            currentNumberB++;
+            currentNumberA++
             yearsExperience.textContent = `+${currentNumberA.toString()}`;
             yearsExperience.classList.add("animate-fade-in-left");
             yearsExperienceText.classList.add("animate-fade-in-right");
